@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import Header from './Header';
-import List from './List';
+import React from 'react';
 
 // Component menggunakan Function
 const Footer = (props) => {

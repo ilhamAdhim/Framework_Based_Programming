@@ -8,22 +8,24 @@ class List extends Component {
                 <ol>
                     <li>
                         Satu
- <Image linkGambar='https://s3-ap-southeast1.amazonaws.com/niomic/img/sample/food1.jpg' />
+                        <Image linkGambar='https://picsum.photos/100?random=1' />
                     </li>
                     <li>
                         Dua
- <Image linkGambar='https://s3-ap-southeast1.amazonaws.com/niomic/img/sample/nasipadang.jpg' />
+                        <Image linkGambar='https://picsum.photos/100?random=2' />
                     </li>
                     <li>
                         Tiga
- <Image linkGambar='https://s3-ap-southeast1.amazonaws.com/niomic/img/sample/sate.png' />
+                        <Image linkGambar='https://picsum.photos/100?random=3' />
                     </li>
                     <li>
                         Empat
- <Image linkGambar='https://s3-ap-southeast1.amazonaws.com/niomic/img/sample/sotolamongan.png' />
+                        <Image linkGambar='https://picsum.photos/100?random=4' />
                     </li>
                 </ol>
             </div>
         );
     }
-} export default List;
+}
+
+export default List;

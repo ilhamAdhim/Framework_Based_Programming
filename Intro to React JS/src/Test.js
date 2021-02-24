@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 class Test extends React.Component {
     constructor(props) {
         super(props);
@@ -14,6 +14,7 @@ class Test extends React.Component {
     changeState() {
         this.setState({ hello: "Geek!" });
     }
+
     render() {
         return (
             <div>
