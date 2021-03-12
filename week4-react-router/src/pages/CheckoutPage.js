@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductCard = props => {
+const CheckoutPage = props => {
     return (
         <div>
 
@@ -8,4 +8,5 @@ const ProductCard = props => {
     );
 };
 
-export default ProductCard;
+
+export default CheckoutPage;

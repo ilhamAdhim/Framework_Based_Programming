@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductCard = props => {
+const ItemDetailPage = props => {
     return (
         <div>
 
@@ -8,4 +8,4 @@ const ProductCard = props => {
     );
 };
 
-export default ProductCard;
+export default ItemDetailPage;

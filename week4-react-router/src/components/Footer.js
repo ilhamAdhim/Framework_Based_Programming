@@ -1,104 +1,103 @@
 import React from 'react';
 
-
 const Footer = () => {
     return (
-        <section style="height: 100%; width: 100%; box-sizing: border-box; background-color: #FFFFFF;">
-            <div style="font-family: 'Poppins', sans-serif;">
-                <div class="list-footer-footer-2-1">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="">
-                                <div class="list-space-footer-2-1">
+        <section style={{ height: '100%', width: '100%', boxSizing: 'border-box', backgroundColor: '#FFFFFF' }}>
+            <div style={{ fontFamily: 'Poppins' }}>
+                <div className="list-footer-footer-2-1">
+                    <div className="row">
+                        <div className="col-lg-3 col-md-6">
+                            <div className="">
+                                <div className="list-space-footer-2-1">
                                     <img src="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header2/Header-2-2.png"
                                         alt="" />
                                 </div>
-                                <nav style="list-style-type:none;">
-                                    <li class="list-space-footer-2-1">
-                                        <a class="list-menu-footer-2-1">Home</a>
+                                <nav style={{ listStyleType: 'none' }}>
+                                    <li className="list-space-footer-2-1">
+                                        <a className="list-menu-footer-2-1">Home</a>
                                     </li>
-                                    <li class="list-space-footer-2-1">
-                                        <a class="list-menu-footer-2-1">About</a>
+                                    <li className="list-space-footer-2-1">
+                                        <a className="list-menu-footer-2-1">About</a>
                                     </li>
-                                    <li class="list-space-footer-2-1">
-                                        <a class="list-menu-footer-2-1">Features</a>
+                                    <li className="list-space-footer-2-1">
+                                        <a className="list-menu-footer-2-1">Features</a>
                                     </li>
-                                    <li class="list-space-footer-2-1">
-                                        <a class="list-menu-footer-2-1">Pricing</a>
+                                    <li className="list-space-footer-2-1">
+                                        <a className="list-menu-footer-2-1">Pricing</a>
                                     </li>
-                                    <li class="list-space-footer-2-1">
-                                        <a class="list-menu-footer-2-1">Testimonial</a>
+                                    <li className="list-space-footer-2-1">
+                                        <a className="list-menu-footer-2-1">Testimonial</a>
                                     </li>
-                                    <li class="list-space-footer-2-1">
-                                        <a class="list-menu-footer-2-1">Help</a>
+                                    <li className="list-space-footer-2-1">
+                                        <a className="list-menu-footer-2-1">Help</a>
                                     </li>
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <h2 class="footer-text-title-footer-2-1 list-space-footer-2-1-title">Product</h2>
-                            <nav style="list-style-type:none;">
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Real Time Analytic</a>
+                        <div className="col-lg-3 col-md-6">
+                            <h2 className="footer-text-title-footer-2-1 list-space-footer-2-1-title">Product</h2>
+                            <nav style={{ listStyleType: 'none' }}>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Real Time Analytic</a>
                                 </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Easy to Operate</a>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Easy to Operate</a>
                                 </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Full Secured</a>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Full Secured</a>
                                 </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Analytic Tool</a>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Analytic Tool</a>
                                 </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Story</a>
-                                </li>
-                            </nav>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <h2 class="footer-text-title-footer-2-1 list-space-footer-2-1-title">Company</h2>
-                            <nav style="list-style-type:none;">
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Contact Us</a>
-                                </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Blog</a>
-                                </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Culture</a>
-                                </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Security</a>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Story</a>
                                 </li>
                             </nav>
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <h2 class="footer-text-title-footer-2-1 list-space-footer-2-1-title">Support</h2>
-                            <nav style="list-style-type:none;">
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Getting Started</a>
+                        <div className="col-lg-3 col-md-6">
+                            <h2 className="footer-text-title-footer-2-1 list-space-footer-2-1-title">Company</h2>
+                            <nav style={{ listStyleType: 'none' }}>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Contact Us</a>
                                 </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Help Center</a>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Blog</a>
                                 </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Server Status</a>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Culture</a>
+                                </li>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Security</a>
+                                </li>
+                            </nav>
+                        </div>
+                        <div className="col-lg-3 col-md-6">
+                            <h2 className="footer-text-title-footer-2-1 list-space-footer-2-1-title">Support</h2>
+                            <nav style={{ listStyleType: 'none' }}>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Getting Started</a>
+                                </li>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Help Center</a>
+                                </li>
+                                <li className="list-space-footer-2-1">
+                                    <a className="list-menu-footer-2-1">Server Status</a>
                                 </li>
                             </nav>
                         </div>
                     </div>
                 </div>
 
-                <div class="border-color-footer-2-1 info-footer-footer-2-1">
-                    <div class="">
-                        <hr class="hr-footer-2-1" />
+                <div className="border-color-footer-2-1 info-footer-footer-2-1">
+                    <div className="">
+                        <hr className="hr-footer-2-1" />
                     </div>
-                    <div class="mx-auto d-flex flex-column flex-lg-row align-items-center footer-info-space-footer-2-1">
-                        <div class="d-flex title-font font-medium align-items-center" style="cursor: pointer;">
-                            <svg class="social-media-c-footer-2-1 social-media-left-footer-2-1" width="30" height="30"
+                    <div className="mx-auto d-flex flex-column flex-lg-row align-items-center footer-info-space-footer-2-1">
+                        <div className="d-flex title-font font-medium align-items-center" style={{ cursor: 'pointer' }}>
+                            <svg className="social-media-c-footer-2-1 social-media-left-footer-2-1" width="30" height="30"
                                 viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="15" cy="15" r="15" fill="#C7C7C7" />
-                                <g clip-path="url(#clip0)">
+                                <g clipPath="url(#clip0)">
                                     <path
                                         d="M17.6648 9.65667H19.1254V7.11267C18.8734 7.078 18.0068 7 16.9974 7C14.8914 7 13.4488 8.32467 13.4488 10.7593V13H11.1248V15.844H13.4488V23H16.2981V15.8447H18.5281L18.8821 13.0007H16.2974V11.0413C16.2981 10.2193 16.5194 9.65667 17.6648 9.65667V9.65667Z"
                                         fill="white" />
@@ -109,10 +108,10 @@ const Footer = () => {
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <svg class="social-media-c-footer-2-1 social-media-center-1-footer-2-1" width="30" height="30"
+                            <svg className="social-media-c-footer-2-1 social-media-center-1-footer-2-1" width="30" height="30"
                                 viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="15" cy="15" r="15" fill="#C7C7C7" />
-                                <g clip-path="url(#clip0)">
+                                <g clipPath="url(#clip0)">
                                     <path
                                         d="M23 10.039C22.405 10.3 21.771 10.473 21.11 10.557C21.79 10.151 22.309 9.513 22.553 8.744C21.919 9.122 21.219 9.389 20.473 9.538C19.871 8.897 19.013 8.5 18.077 8.5C16.261 8.5 14.799 9.974 14.799 11.781C14.799 12.041 14.821 12.291 14.875 12.529C12.148 12.396 9.735 11.089 8.114 9.098C7.831 9.589 7.665 10.151 7.665 10.756C7.665 11.892 8.25 12.899 9.122 13.482C8.595 13.472 8.078 13.319 7.64 13.078C7.64 13.088 7.64 13.101 7.64 13.114C7.64 14.708 8.777 16.032 10.268 16.337C10.001 16.41 9.71 16.445 9.408 16.445C9.198 16.445 8.986 16.433 8.787 16.389C9.212 17.688 10.418 18.643 11.852 18.674C10.736 19.547 9.319 20.073 7.785 20.073C7.516 20.073 7.258 20.061 7 20.028C8.453 20.965 10.175 21.5 12.032 21.5C18.068 21.5 21.368 16.5 21.368 12.166C21.368 12.021 21.363 11.881 21.356 11.742C22.007 11.28 22.554 10.703 23 10.039Z"
                                         fill="white" />
@@ -123,7 +122,7 @@ const Footer = () => {
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <svg class="social-media-p-footer-2-1 social-media-center-2-footer-2-1" width="30" height="30"
+                            <svg className="social-media-p-footer-2-1 social-media-center-2-footer-2-1" width="30" height="30"
                                 viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M17.8711 15C17.8711 16.5857 16.5857 17.8711 15 17.8711C13.4143 17.8711 12.1289 16.5857 12.1289 15C12.1289 13.4143 13.4143 12.1289 15 12.1289C16.5857 12.1289 17.8711 13.4143 17.8711 15Z"
@@ -135,10 +134,10 @@ const Footer = () => {
                                     d="M15 0C6.717 0 0 6.717 0 15C0 23.283 6.717 30 15 30C23.283 30 30 23.283 30 15C30 6.717 23.283 0 15 0ZM23.5613 18.5511C23.5197 19.468 23.3739 20.094 23.161 20.6419C22.7135 21.7989 21.7989 22.7135 20.6419 23.161C20.0942 23.3739 19.468 23.5194 18.5513 23.5613C17.6328 23.6032 17.3394 23.6133 15.0002 23.6133C12.6608 23.6133 12.3676 23.6032 11.4489 23.5613C10.5322 23.5194 9.90601 23.3739 9.35829 23.161C8.78334 22.9447 8.26286 22.6057 7.83257 22.1674C7.39449 21.7374 7.05551 21.2167 6.83922 20.6419C6.62636 20.0942 6.48056 19.468 6.4389 18.5513C6.39656 17.6326 6.38672 17.3392 6.38672 15C6.38672 12.6608 6.39656 12.3674 6.43867 11.4489C6.48033 10.532 6.6259 9.90601 6.83876 9.35806C7.05505 8.78334 7.39426 8.26263 7.83257 7.83257C8.26263 7.39426 8.78334 7.05528 9.35806 6.83899C9.90601 6.62613 10.532 6.48056 11.4489 6.43867C12.3674 6.39679 12.6608 6.38672 15 6.38672C17.3392 6.38672 17.6326 6.39679 18.5511 6.4389C19.468 6.48056 20.094 6.62613 20.6419 6.83876C21.2167 7.05505 21.7374 7.39426 22.1677 7.83257C22.6057 8.26286 22.9449 8.78334 23.161 9.35806C23.3741 9.90601 23.5197 10.532 23.5616 11.4489C23.6034 12.3674 23.6133 12.6608 23.6133 15C23.6133 17.3392 23.6034 17.6326 23.5613 18.5511V18.5511Z"
                                     fill="#C7C7C7" />
                             </svg>
-                            <svg class="social-media-c-footer-2-1 social-media-right" width="30" height="30" viewBox="0 0 30 30"
+                            <svg className="social-media-c-footer-2-1 social-media-right" width="30" height="30" viewBox="0 0 30 30"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="15" cy="15" r="15" fill="#C7C7C7" />
-                                <g clip-path="url(#clip0)">
+                                <g clipPath="url(#clip0)">
                                     <path
                                         d="M17.9027 22.4467C17.916 22.4427 17.9287 22.4373 17.942 22.4327C26.0853 19.1973 23.8327 7 15 7C10.5673 7 7 10.6133 7 15C7 20.5513 12.6227 24.5127 17.9027 22.4467ZM10.5207 20.3727C11.0887 19.418 12.9267 16.7247 16.064 15.7953C16.72 17.468 17.18 19.4193 17.2253 21.632C14.848 22.4313 12.3407 21.8933 10.5207 20.3727V20.3727ZM18.2087 21.2147C18.1213 19.0887 17.6873 17.2033 17.0687 15.57C18.4567 15.3533 20.0633 15.498 21.8853 16.228C21.498 18.402 20.108 20.2293 18.2087 21.2147V21.2147ZM21.99 15.194C19.9833 14.44 18.2147 14.346 16.684 14.638C16.4473 14.1047 16.1987 13.592 15.9353 13.12C18.284 12.182 19.672 11.0387 20.2933 10.4333C21.39 11.7027 22.0413 13.346 21.99 15.194V15.194ZM19.5833 9.72133C19.018 10.2593 17.6867 11.346 15.41 12.2347C14.294 10.4693 13.1007 9.224 12.3447 8.52667C14.7633 7.53067 17.5527 7.956 19.5833 9.72133V9.72133ZM11.3887 9.01533C11.9593 9.51733 13.212 10.7227 14.4207 12.5867C12.7607 13.1213 10.6793 13.514 8.148 13.5693C8.55067 11.64 9.75333 10.0053 11.3887 9.01533V9.01533ZM8.02133 14.5733C10.8547 14.5273 13.148 14.08 14.9607 13.4747C15.2113 13.914 15.4493 14.3927 15.678 14.89C12.5213 15.8953 10.5487 18.4907 9.79333 19.6627C8.57467 18.3027 7.90267 16.528 8.02133 14.5733V14.5733Z"
                                         fill="white" />
@@ -151,15 +150,15 @@ const Footer = () => {
                             </svg>
                         </div>
                         <nav
-                            class="mx-auto d-flex flex-wrap align-items-center justify-content-center footer-responsive-space-footer-2-1">
-                            <a class="footer-link-footer-2-1" style="text-decoration: none;">Terms of Service</a>
-                            <span style="margin-right:1.25rem">|</span>
-                            <a class="footer-link-footer-2-1" style="text-decoration: none;">Privacy Policy</a>
-                            <span style="margin-right:1.25rem">|</span>
-                            <a class="footer-link-footer-2-1" style="text-decoration: none;">Licenses</a>
+                            className="mx-auto d-flex flex-wrap align-items-center justify-content-center footer-responsive-space-footer-2-1">
+                            <a className="footer-link-footer-2-1" style={{ textDecoration: 'none' }}>Terms of Service</a>
+                            <span style={{ marginRight: '1.25rem' }}>|</span>
+                            <a className="footer-link-footer-2-1" style={{ textDecoration: 'none' }}>Privacy Policy</a>
+                            <span style={{ marginRight: '1.25rem' }}>|</span>
+                            <a className="footer-link-footer-2-1" style={{ textDecoration: 'none' }}>Licenses</a>
                         </nav>
-                        <nav class="d-flex flex-lg-row flex-column align-items-center justify-content-center">
-                            <p style="margin: 0">Copyright © 2021 Analystic Max</p>
+                        <nav className="d-flex flex-lg-row flex-column align-items-center justify-content-center">
+                            <p style={{ margin: 0 }}>Copyright © 2021 Analystic Max</p>
                         </nav>
                     </div>
                 </div>

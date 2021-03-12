@@ -12,8 +12,8 @@ import { useState } from 'react';
 
 export default function AuthExample() {
     const [isAuthenticated, setIsAuth] = useState(false);
-    
-    function AuthButton(){
+
+    function AuthButton() {
         let history = useHistory();
         console.log(isAuthenticated)
         return isAuthenticated ? (
@@ -31,44 +31,44 @@ export default function AuthExample() {
             <p> You are not logged in </p>
         )
     }
-    
-    function PrivateRoute({children, ...rest}){
-        return( 
-            <Route {...rest} render={({location}) => isAuthenticated ? (children) : 
-            <Redirect to= {{
-                pathname: "/login",
-                state: {from: location}
-            }} />} />
+
+    function PrivateRoute({ children, ...rest }) {
+        return (
+            <Route {...rest} render={({ location }) => isAuthenticated ? (children) :
+                <Redirect to={{
+                    pathname: "/login",
+                    state: { from: location }
+                }} />} />
         )
     }
-    
-    function PublicPage(){
+
+    function PublicPage() {
         return <h3>Public</h3>
     }
-    
-    function ProtectedPage(){
+
+    function ProtectedPage() {
         return <h3>Private</h3>
     }
-    
-    function LoginPage(){
+
+    function LoginPage() {
         let history = useHistory()
         let location = useLocation()
-    
-        let {from } = location.state || { from : {pathname : "/"}}
-        let login = ()=> {
+
+        let { from } = location.state || { from: { pathname: "/" } }
+        let login = () => {
             // fakeAuth.authenticate(() => {history.replace(from)})
             setIsAuth(true)
             history.replace(from)
         }
-    
+
         return (
             <div>
                 <p> You must login to view the page at {from.pathname} </p>
                 <button onClick={login}>Login</button>
-                
+
             </div>
         )
-    
+
     }
     return (
         <Router>
