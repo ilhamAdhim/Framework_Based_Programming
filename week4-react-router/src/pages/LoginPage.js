@@ -1,9 +1,6 @@
 import React from 'react';
 import "../styles/login.css";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
 
@@ -11,13 +8,13 @@ const LoginPage = () => {
   return (
     <section style={{ height: '100%', width: '100%', boxSizing: 'border-box', backgroundColor: "#F5F5F5" }}>
 
-      <div className="d-flex flex-column align-items-center h-100 flex-lg-row" style={{ fontFamily: 'Poppins' }}>
-        <div className="position-relative d-none d-lg-block h-100 width-left-content-3-5">
+      <div className="d-flex flex-column align-items-center h-100 flex-lg-row" style={{ fontFamily: 'Poppins' }} >
+        <div className="position-relative d-none d-lg-block h-100 width-left-content-3-5" data-aos="fade-right">
           <img className="position-absolute img-fluid centered-content-3-5"
             src="http://api.elements.buildwithangga.com/storage/files/2/assets/Empty%20State/EmptyState3/Empty-3-5.png"
             alt="" />
         </div>
-        <div className="d-flex mx-auto align-items-left justify-content-left width-right-content-3-5">
+        <div className="d-flex mx-auto align-items-left justify-content-left width-right-content-3-5" data-aos="fade-up" data-aos-delay="500">
           <div className="right-content-3-5">
             <div className="align-items-center justify-content-center d-lg-none d-flex">
               <img className="img-fluid"

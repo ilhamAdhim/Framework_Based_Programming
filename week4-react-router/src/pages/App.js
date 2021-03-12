@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ShopPage from './ShopPage';
 import LoginPage from './LoginPage';
 import ItemDetailPage from './ItemDetailPage';
 import {
-    BrowserRouter as Router, Route, Switch, Redirect, useHistory,
-    useLocation,
+    BrowserRouter as Router, Route, Switch, Redirect,
 } from "react-router-dom";
+
+// Added animate on Scroll library
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import Profile from './Profile';
 
-
 const App = () => {
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
+
     const [isAuthenticated, setIsAuth] = useState(false);
 
     const PrivateRoute = ({ children, ...rest }) => {

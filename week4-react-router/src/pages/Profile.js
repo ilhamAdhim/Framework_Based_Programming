@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-    BrowserRouter as Router, Route, Switch, Redirect, useHistory,
-    useLocation,
+    useHistory,
 } from "react-router-dom";
 
 const Profile = props => {
