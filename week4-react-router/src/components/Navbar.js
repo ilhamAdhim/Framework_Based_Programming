@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { MDBBtn } from "mdbreact";
 
 const Navbar = (props) => {
   return (
@@ -62,9 +62,9 @@ const Navbar = (props) => {
             </ul>
             <div className="d-flex">
               <Link to="/login">
-                <Button>
+                <MDBBtn color="amber" >
                   Login
-                </Button>
+                </MDBBtn>
               </Link>
 
             </div>

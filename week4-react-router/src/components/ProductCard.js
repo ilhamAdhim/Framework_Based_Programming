@@ -3,14 +3,14 @@ import { MDBBtn, MDBCard, MDBCardFooter, MDBCardBody, MDBCardImage, MDBCardTitle
 
 const ProductCard = props => {
   return (
-            <MDBCard>
-                <MDBCardImage className="img-fluid" src={props.image} waves top hover style={{height:'260px'}}/>
-                <MDBCardBody>
+        <MDBCard  data-aos="fade-left">
+            <MDBCardImage className="img-fluid" src={props.image} waves top hover style={{height:'260px'}}/>
+            <MDBCardBody>
                 <MDBCardTitle>{props.name}</MDBCardTitle>
                 <hr />
                 {/* Only show first 70 char in description */}
                 <MDBCardText>{props.description.replace(/^(.{70}[^\s]*).*/, "$1") + '...'}</MDBCardText>  
-                <h5 className="text-right" >{ 'Rp. ' + props.price}</h5>  
+                <h5 className="text-right" >{ 'Rp. ' + props.price.toLocaleString()}</h5>  
 
                 <MDBCardFooter>
                     <MDBRow> 
@@ -22,8 +22,8 @@ const ProductCard = props => {
                         </MDBCol>
                     </MDBRow>
                 </MDBCardFooter>
-                </MDBCardBody>
-            </MDBCard>
+            </MDBCardBody>
+        </MDBCard>
   );
 };
 

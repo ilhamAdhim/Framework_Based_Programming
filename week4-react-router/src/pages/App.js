@@ -35,7 +35,7 @@ const App = () => {
             <Switch>
                 <Route exact path="/" render={ShopPage} />
                 <Route path="/login" component={LoginPage} />
-                <Route path="/detail/:id" component={ItemDetailPage} />
+                <Route path="/detail/:productName" component={ItemDetailPage} />
                 <PrivateRoute path="/profile" render={() => (<Profile auth={[isAuthenticated, setIsAuth]} />)} />
                 <Redirect to="/" />
             </Switch>
