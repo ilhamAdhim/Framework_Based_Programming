@@ -62,8 +62,8 @@ const LoginPage = () => {
               <div className="text-right" style={{ marginTop: '0.75rem' }}>
                 <a href="#" className="forgot-password-content-3-5 font-italic">Forgot Password?</a>
               </div>
-              <Link >
-                <button className="btn btn-fill-content-3-5 d-block w-100">Log In To My Account</button>
+              <Link style={{ textDecoration: 'none' }} to='/profile' >
+                <button className="btn btn-fill-content-3-5 d-block w-100" >Log In To My Account</button>
               </Link>
             </form>
             <p className="text-center bottom-caption-content-3-5">Don't have an account yet?
