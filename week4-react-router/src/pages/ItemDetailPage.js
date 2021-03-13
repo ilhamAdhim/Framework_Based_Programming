@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { sampleProducts } from "../components/ProductList";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import Navbar from '../components/Navbar';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBBtn, MDBCardGroup } from 'mdbreact';
 import Footer from '../components/Footer';
@@ -8,7 +8,7 @@ import FontAwesome from "react-fontawesome";
 import ProductCard from "../components/ProductCard";
 
 
-function ScrollToTopOnMount() {
+export function ScrollToTopOnMount() {
     useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
@@ -17,6 +17,7 @@ function ScrollToTopOnMount() {
   }
 
 const ItemDetailPage = () => {
+    let history = useHistory();
     let { productName } = useParams();
     
     // Biar SEO Friendly
@@ -38,14 +39,14 @@ const ItemDetailPage = () => {
                         <MDBCard style={styleCard}>
                             <MDBRow>
                                 <MDBCol sm="1">
-                                    <Link to="/">
-                                        <FontAwesome
-                                            className='text-center'
-                                            name='arrow-circle-left'
-                                            size='2x'
-                                            style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)', paddingTop: "1em" }}
-                                            />
-                                    </Link>
+                                    <FontAwesome
+                                        onClick={() => history.goBack()}
+                                        className='text-center'
+                                        name='arrow-circle-left'
+                                        size='2x'
+                                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)', paddingTop: "1em", cursor : "pointer"
+                                     }}
+                                        />
                                 </MDBCol>
                                 <MDBCol sm="10">
                                     <figcaption className="figure-caption text-center p-4" style={{fontWeight:'bold', fontSize:'1.5em'}}>

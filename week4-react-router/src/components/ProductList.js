@@ -25,7 +25,7 @@ export const sampleProducts = [
         product_name: "Jas putih pria",
         description: "jas putih pria dari bahan import terbaik. Tersedia ukuran S, M, L, XL",
         price: 450000,
-        promo: "monthlySale",
+        promo: "monthSale",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS64u-fX5B5hacOKl_zsdVY051tA1xsaVRwKg&usqp=CAU"
     },
     {
@@ -49,7 +49,7 @@ export const sampleProducts = [
         product_name: "Tunik Muslimah Talita Tunik",
         description: "Baju tunik ini dibuat menggunakan bahan Mosscreap. Bahan Mosscreap ini sangat nyaman digunakan karena dingin, tidak mudah kusut, tidak transparan dan lembut pastinya",
         price: 77000,
-        promo: "monthlySale",
+        promo: "monthSale",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMrM26Es2fmw3F7J0X8c5soGKXEL1ooowIhg&usqp=CAU"
     },
     {
@@ -73,7 +73,7 @@ export const sampleProducts = [
         product_name: "Keyboard Digital Alliance",
         description: "Keyboard paling gokil, murmer, yok beli sis mumpung lagi murah meriah duarrr",
         price: 40000,
-        promo: "monthlySale",
+        promo: "monthSale",
         image: "https://www.digitalalliance.co.id/wp-content/uploads/2018/02/MM_03.jpg"
     },
     {
@@ -81,7 +81,7 @@ export const sampleProducts = [
         product_name: "Monitor portable",
         description: "Monitor bisa dibawa kemana mana, ekonomis, praktis, dan mobilitas tinggi",
         price: 80000,
-        promo: "monthlySale",
+        promo: "monthSale",
         image:"https://images-na.ssl-images-amazon.com/images/I/8161FbWWa-L._AC_SL1500_.jpg"
     },
     {
@@ -102,23 +102,24 @@ export const sampleProducts = [
     },
 ]
 
-const ProductList = () => {
-
+const ProductList = (props) => {
+    console.log()
     //Later fetch data from https://product-service-indent.herokuapp.com/product
     return (
         <>
-        <h1 className='text-center mb-4'>Flash Sale</h1>
+        <h1 className='text-center mb-4'>{props.promoName ?? 'All products'}</h1>
             <MDBCardGroup>
                 <MDBRow>
-                {sampleProducts.map(item => 
-                    <MDBCol md="4" style={{marginBottom : '2em'}}> 
+                {props.data.map(item => 
+                    <MDBCol md="4" style={{marginBottom : '2em'}} key={item._id}> 
                         <Link to={`/detail/${item.product_name.replace(/ /g, '_')}`} key={item._id} style={{ color: 'black' }}>
-                            <ProductCard id={item._id} 
-                                        name = {item.product_name}
-                                        price = {item.price}
-                                        promo = {item.promo}
-                                        image = {item.image}
-                                        description = {item.description} 
+                            <ProductCard 
+                                id={item._id} 
+                                name  = {item.product_name}
+                                price = {item.price}
+                                promo = {item.promo}
+                                image = {item.image}
+                                description = {item.description} 
                             />
                         </Link>
                     </MDBCol>

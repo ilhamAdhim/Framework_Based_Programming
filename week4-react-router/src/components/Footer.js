@@ -14,22 +14,22 @@ const Footer = () => {
                                 </div>
                                 <nav style={{ listStyleType: 'none' }}>
                                     <li className="list-space-footer-2-1">
-                                        <a className="list-menu-footer-2-1">Home</a>
+                                        <div className="list-menu-footer-2-1">Home</div>
                                     </li>
                                     <li className="list-space-footer-2-1">
-                                        <a className="list-menu-footer-2-1">About</a>
+                                        <div className="list-menu-footer-2-1">About</div>
                                     </li>
                                     <li className="list-space-footer-2-1">
-                                        <a className="list-menu-footer-2-1">Features</a>
+                                        <div className="list-menu-footer-2-1">Features</div>
                                     </li>
                                     <li className="list-space-footer-2-1">
-                                        <a className="list-menu-footer-2-1">Pricing</a>
+                                        <div className="list-menu-footer-2-1">Pricing</div>
                                     </li>
                                     <li className="list-space-footer-2-1">
-                                        <a className="list-menu-footer-2-1">Testimonial</a>
+                                        <div className="list-menu-footer-2-1">Testimonial</div>
                                     </li>
                                     <li className="list-space-footer-2-1">
-                                        <a className="list-menu-footer-2-1">Help</a>
+                                        <div className="list-menu-footer-2-1">Help</div>
                                     </li>
                                 </nav>
                             </div>
@@ -38,19 +38,19 @@ const Footer = () => {
                             <h2 className="footer-text-title-footer-2-1 list-space-footer-2-1-title">Product</h2>
                             <nav style={{ listStyleType: 'none' }}>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Real Time Analytic</a>
+                                    <div className="list-menu-footer-2-1">Real Time Analytic</div>
                                 </li>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Easy to Operate</a>
+                                    <div className="list-menu-footer-2-1">Easy to Operate</div>
                                 </li>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Full Secured</a>
+                                    <div className="list-menu-footer-2-1">Full Secured</div>
                                 </li>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Analytic Tool</a>
+                                    <div className="list-menu-footer-2-1">Analytic Tool</div>
                                 </li>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Story</a>
+                                    <div className="list-menu-footer-2-1">Story</div>
                                 </li>
                             </nav>
                         </div>
@@ -58,16 +58,16 @@ const Footer = () => {
                             <h2 className="footer-text-title-footer-2-1 list-space-footer-2-1-title">Company</h2>
                             <nav style={{ listStyleType: 'none' }}>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Contact Us</a>
+                                    <div className="list-menu-footer-2-1">Contact Us</div>
                                 </li>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Blog</a>
+                                    <div className="list-menu-footer-2-1">Blog</div>
                                 </li>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Culture</a>
+                                    <div className="list-menu-footer-2-1">Culture</div>
                                 </li>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Security</a>
+                                    <div className="list-menu-footer-2-1">Security</div>
                                 </li>
                             </nav>
                         </div>
@@ -75,13 +75,13 @@ const Footer = () => {
                             <h2 className="footer-text-title-footer-2-1 list-space-footer-2-1-title">Support</h2>
                             <nav style={{ listStyleType: 'none' }}>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Getting Started</a>
+                                    <div className="list-menu-footer-2-1">Getting Started</div>
                                 </li>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Help Center</a>
+                                    <div className="list-menu-footer-2-1">Help Center</div>
                                 </li>
                                 <li className="list-space-footer-2-1">
-                                    <a className="list-menu-footer-2-1">Server Status</a>
+                                    <div className="list-menu-footer-2-1">Server Status</div>
                                 </li>
                             </nav>
                         </div>
@@ -137,11 +137,11 @@ const Footer = () => {
                         </div>
                         <nav
                             className="mx-auto d-flex flex-wrap align-items-center justify-content-center footer-responsive-space-footer-2-1">
-                            <a className="footer-link-footer-2-1" style={{ textDecoration: 'none' }}>Terms of Service</a>
+                            <div className="footer-link-footer-2-1" style={{ textDecoration: 'none' }}>Terms of Service</div>
                             <span style={{ marginRight: '1.25rem' }}>|</span>
-                            <a className="footer-link-footer-2-1" style={{ textDecoration: 'none' }}>Privacy Policy</a>
+                            <div className="footer-link-footer-2-1" style={{ textDecoration: 'none' }}>Privacy Policy</div>
                             <span style={{ marginRight: '1.25rem' }}>|</span>
-                            <a className="footer-link-footer-2-1" style={{ textDecoration: 'none' }}>Licenses</a>
+                            <div className="footer-link-footer-2-1" style={{ textDecoration: 'none' }}>Licenses</div>
                         </nav>
                         <nav className="d-flex flex-lg-row flex-column align-items-center justify-content-center">
                             <p style={{ margin: 0 }}>Copyright © 2021 Analystic Max</p>

@@ -1,15 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { MDBBtn } from "mdbreact";
 
-const Navbar = (props) => {
-  return (
+const Navbar = () => {
+  const location = useLocation();
+
+  const homeClass = location.pathname === "/" ? "nav-link px-md-4 active" : "nav-link px-md-4";
+  const promoClass = location.pathname.match(/^\/promo/) ? "nav-link px-md-4 active" : "nav-link px-md-4";
+
+   return (
     <section style={{ height: '100%', width: '100%', boxSizing: 'border-box', backgroundColor: '#FFFFFF' }}>
       <nav
-        className="navbar navbar-expand-lg navbar-light p-4 px-md-4 mb-3 bg-body border-bottom"
+        className="navbar navbar-expand-lg navbar-light p-4 px-md-4 mb-3 bg-body border-bottom "
         style={{ fontFamily: 'Poppins' }}>
         <div className="container">
-          <a className="navbar-brand" href="#">
             <svg
               width="42"
               height="42"
@@ -28,7 +32,6 @@ const Navbar = (props) => {
                 fill="#391484"
               />
             </svg>
-          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -43,21 +46,14 @@ const Navbar = (props) => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link px-md-4 active" aria-current="page" href="#"
-                >Features</a
-                >
+                <Link className={homeClass} to="/" aria-current="page">
+                  Shop
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link px-md-4" href="#">About</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link px-md-4" href="#">Contacts</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link px-md-4" href="#">Teams</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link px-md-4" href="#">Review</a>
+                <Link className={promoClass} to="/promo">
+                  Promo
+                </Link>
               </li>
             </ul>
             <div className="d-flex">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ShopPage from './ShopPage';
 import LoginPage from './LoginPage';
+import PromoPage from "../pages/PromoPage";
 import ItemDetailPage from './ItemDetailPage';
 import {
     BrowserRouter as Router, Route, Switch, Redirect,
@@ -35,6 +36,7 @@ const App = () => {
             <Switch>
                 <Route exact path="/" render={ShopPage} />
                 <Route path="/login" component={LoginPage} />
+                <Route path="/promo" component={PromoPage} />
                 <Route path="/detail/:productName" component={ItemDetailPage} />
                 <PrivateRoute path="/profile" render={() => (<Profile auth={[isAuthenticated, setIsAuth]} />)} />
                 <Redirect to="/" />
