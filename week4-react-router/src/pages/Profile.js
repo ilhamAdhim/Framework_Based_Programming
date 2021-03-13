@@ -5,18 +5,18 @@ import {
 
 const Profile = props => {
     let history = useHistory();
-    console.log(props.isAuthenticated)
-    return props.isAuthenticated ? (
+    console.log(history.location.isAuthenticated)
+
+    return history.location.isAuthenticated ? (
         <p>
-            Welcome! {" "}
+            Welcome User!
             <button onClick={() => {
                 // fakeAuth.signout(() => history.push("/"))
-                props.setIsAuth(false)
-                history.push("/")
+                history.push({ pathname: "/", isAuthenticated: false })
             }}>
                 Sign Out
                 </button>
-        </p>
+        </p >
     ) : (
         <p> You are not logged in </p>
     )

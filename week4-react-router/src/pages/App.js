@@ -19,9 +19,9 @@ const App = () => {
         AOS.init();
     }, [])
 
-    const [isAuthenticated, setIsAuth] = useState(false);
+    // const [isAuthenticated, setIsAuth] = useState(false);
 
-    const PrivateRoute = ({ children, ...rest }) => {
+    /* const PrivateRoute = ({ children, ...rest }) => {
         return (
             <Route {...rest} render={({ location }) => isAuthenticated ? (children) :
                 <Redirect to={{
@@ -29,7 +29,7 @@ const App = () => {
                     state: { from: location }
                 }} />} />
         )
-    }
+    } */
 
     return (
         <Router>
@@ -37,8 +37,9 @@ const App = () => {
                 <Route exact path="/" render={ShopPage} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/promo" component={PromoPage} />
+                <Route path="/profile" component={Profile} />
                 <Route path="/detail/:productName" component={ItemDetailPage} />
-                <PrivateRoute path="/profile" render={() => (<Profile auth={[isAuthenticated, setIsAuth]} />)} />
+                {/* <PrivateRoute path="/profile" render={() => (<Profile auth={[isAuthenticated, setIsAuth]} />)} /> */}
                 <Redirect to="/" />
             </Switch>
         </Router>
