@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCard from "./ProductCard";
-import { MDBRow,MDBCol, MDBCardGroup } from 'mdbreact';
+import { MDBRow, MDBCol, MDBCardGroup } from 'mdbreact';
 import { Link } from 'react-router-dom';
 
 export const sampleProducts = [
@@ -10,7 +10,7 @@ export const sampleProducts = [
         description: "penggaris dapat digunakan untuk mengukur dan membuat garis",
         price: 77000,
         promo: "flashSale",
-        image:"https://ae01.alicdn.com/kf/HTB13aVlaffsK1RjSszbq6AqBXXaI/1-Pcs-Lytwtw-S-Kawaii-Transparan-Sederhana-Wortel-Kaktus-Penggaris-Plastik-Alat-Ukur-Penggaris-Lurus-Pelajar.jpg"
+        image: "https://ae01.alicdn.com/kf/HTB13aVlaffsK1RjSszbq6AqBXXaI/1-Pcs-Lytwtw-S-Kawaii-Transparan-Sederhana-Wortel-Kaktus-Penggaris-Plastik-Alat-Ukur-Penggaris-Lurus-Pelajar.jpg"
     },
     {
         _id: 2,
@@ -58,7 +58,7 @@ export const sampleProducts = [
         description: "penggaris dapat digunakan untuk mengukur dan membuat garis",
         price: 77000,
         promo: "flashSale",
-        image:"https://ae01.alicdn.com/kf/HTB13aVlaffsK1RjSszbq6AqBXXaI/1-Pcs-Lytwtw-S-Kawaii-Transparan-Sederhana-Wortel-Kaktus-Penggaris-Plastik-Alat-Ukur-Penggaris-Lurus-Pelajar.jpg"
+        image: "https://ae01.alicdn.com/kf/HTB13aVlaffsK1RjSszbq6AqBXXaI/1-Pcs-Lytwtw-S-Kawaii-Transparan-Sederhana-Wortel-Kaktus-Penggaris-Plastik-Alat-Ukur-Penggaris-Lurus-Pelajar.jpg"
     },
     {
         _id: 8,
@@ -82,7 +82,7 @@ export const sampleProducts = [
         description: "Monitor bisa dibawa kemana mana, ekonomis, praktis, dan mobilitas tinggi",
         price: 80000,
         promo: "monthSale",
-        image:"https://images-na.ssl-images-amazon.com/images/I/8161FbWWa-L._AC_SL1500_.jpg"
+        image: "https://images-na.ssl-images-amazon.com/images/I/8161FbWWa-L._AC_SL1500_.jpg"
     },
     {
         _id: 11,
@@ -90,7 +90,7 @@ export const sampleProducts = [
         description: "Monitor bisa dibawa kemana mana, ekonomis, praktis, dan mobilitas tinggi",
         price: 80000,
         promo: "gebyarMaret",
-        image:"https://images-na.ssl-images-amazon.com/images/I/8161FbWWa-L._AC_SL1500_.jpg"
+        image: "https://images-na.ssl-images-amazon.com/images/I/8161FbWWa-L._AC_SL1500_.jpg"
     },
     {
         _id: 12,
@@ -98,32 +98,31 @@ export const sampleProducts = [
         description: "Monitor bisa dibawa kemana mana, ekonomis, praktis, dan mobilitas tinggi",
         price: 80000,
         promo: "gebyarMaret",
-        image:"https://images-na.ssl-images-amazon.com/images/I/8161FbWWa-L._AC_SL1500_.jpg"
+        image: "https://images-na.ssl-images-amazon.com/images/I/8161FbWWa-L._AC_SL1500_.jpg"
     },
 ]
 
 const ProductList = (props) => {
-    console.log()
     //Later fetch data from https://product-service-indent.herokuapp.com/product
     return (
         <>
-        <h1 className='text-center mb-4'>{props.promoName ?? 'All products'}</h1>
+            <h1 className='text-center mb-4'>{props.promoName ?? 'All products'}</h1>
             <MDBCardGroup>
                 <MDBRow>
-                {props.data.map(item => 
-                    <MDBCol md="4" style={{marginBottom : '2em'}} key={item._id}> 
-                        <Link to={`/detail/${item.product_name.replace(/ /g, '_')}`} key={item._id} style={{ color: 'black' }}>
-                            <ProductCard 
-                                id={item._id} 
-                                name  = {item.product_name}
-                                price = {item.price}
-                                promo = {item.promo}
-                                image = {item.image}
-                                description = {item.description} 
-                            />
-                        </Link>
-                    </MDBCol>
-                ) }
+                    {props.data.map(item =>
+                        <MDBCol md="4" style={{ marginBottom: '2em' }} key={item._id}>
+                            <Link to={`/detail/${item.product_name.replace(/ /g, '_')}`} key={item._id} style={{ color: 'black' }}>
+                                <ProductCard
+                                    id={item._id}
+                                    name={item.product_name}
+                                    price={item.price}
+                                    promo={item.promo}
+                                    image={item.image}
+                                    description={item.description}
+                                />
+                            </Link>
+                        </MDBCol>
+                    )}
                 </MDBRow>
             </MDBCardGroup>
         </>

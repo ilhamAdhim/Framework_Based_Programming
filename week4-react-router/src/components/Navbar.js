@@ -1,24 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { MDBBtn } from "mdbreact";
+import { MDBBtn, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle } from "mdbreact";
+import FontAwesome from 'react-fontawesome';
 
 const Navbar = () => {
-  const [isAuthenticated, setIsAuth] = useState(false);
   let history = useHistory()
   let location = useLocation()
 
   const homeClass = location.pathname === "/" ? "nav-link px-md-4 active" : "nav-link px-md-4";
   const promoClass = location.pathname.match(/^\/promo/) ? "nav-link px-md-4 active" : "nav-link px-md-4";
 
-  let login = () => {
-    setIsAuth(true)
-    history.push({pathname : "/profile", isAuthenticated: true})
-  }
+  let login = () => history.push({ pathname: location.pathname, isAuthenticated: true })
 
-  let logout = () =>{
-    setIsAuth(false)
-    history.push("/")
-  }
+  let logout = () => history.push({ pathname: location.pathname, isAuthenticated: false })
   
   return (
     <section style={{ height: '100%', width: '100%', boxSizing: 'border-box', backgroundColor: '#FFFFFF' }}>
@@ -69,16 +63,27 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="d-flex">
-              { !isAuthenticated ? 
+              { !history.location.isAuthenticated ? 
               <MDBBtn onClick={login} color="amber" >
                 Login
               </MDBBtn>
               : 
               <>
 
-                <MDBBtn onClick={logout} color="danger" >
-                  Logout
-                </MDBBtn>
+              <MDBDropdown>
+                <MDBDropdownToggle caret color="success">
+                <FontAwesome
+                      className='text-center'
+                      name='user'
+                      size='2x'
+                  />
+                </MDBDropdownToggle>
+                <MDBDropdownMenu basic>
+                  <MDBDropdownItem onClick={()=> history.push({ pathname: "/profile", isAuthenticated: true }) }>Profile</MDBDropdownItem>
+                  <MDBDropdownItem divider />
+                  <MDBDropdownItem onClick={logout}>Logout</MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
               </> }
               
 

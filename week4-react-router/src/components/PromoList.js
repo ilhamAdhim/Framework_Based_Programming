@@ -22,10 +22,7 @@ const PromoList = () => {
     const [selectedPromo, setSelectedPromo] = useState("")
     const [filteredProduct, setFilteredProduct] = useState()
 
-    const handleOnClickPromo = e => {
-        setSelectedPromo(e.target.value)
-        
-    }
+    const handleOnClickPromo = e => setSelectedPromo(e.target.value)
 
     useEffect(() => {
         setFilteredProduct(() => sampleProducts.filter(item => item.promo === selectedPromo))
