@@ -30,10 +30,11 @@ const PromoList = () => {
     }, [selectedPromo])
     return (
         <>
+
             <MDBCardGroup style={{ padding: '1em' }}>
                 <MDBRow>
                     {promos.map(promo =>
-                        <MDBCol md="4" style={{ marginBottom: '2em' }}>
+                        <MDBCol md="4" style={{ marginBottom: '2em' }} key={promo} >
                             <label>
                                 {promo}
                                 <input type="radio" name="promo" value={promo} onChange={handleOnClickPromo} />
