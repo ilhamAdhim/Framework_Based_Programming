@@ -7,7 +7,7 @@ const PromoList = () => {
     const getUnique = array => {
         let uniqueArray = [];
 
-        // Loop through array values
+        //  Loop through array values
         for (let value of array) {
             if (uniqueArray.indexOf(value) === -1) {
                 uniqueArray.push(value);
@@ -30,7 +30,6 @@ const PromoList = () => {
     }, [selectedPromo])
     return (
         <>
-
             <MDBCardGroup style={{ padding: '1em' }}>
                 <MDBRow>
                     {promos.map(promo =>

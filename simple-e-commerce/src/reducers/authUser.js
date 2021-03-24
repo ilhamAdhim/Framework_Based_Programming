@@ -1,10 +1,13 @@
 export const authUser = (state = false, action) => {
     switch (action.type) {
         case 'LOGIN':
-            // TODO Login algorithm
+            return state = {
+                ...action.payload,
+                status: true
+            }
             break;
         case 'LOGOUT':
-            // TODO Logout algorithm
+            return state = false
             break;
         default:
             return state

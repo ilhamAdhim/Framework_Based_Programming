@@ -1,14 +1,19 @@
 import React from 'react';
 import FontAwesome from "react-fontawesome";
+import { useSelector } from 'react-redux';
 
 import { useHistory } from "react-router-dom";
 
 const Profile = props => {
     let history = useHistory();
+    const loggedUser = useSelector(state => state.user)
 
-    return history.location.isAuthenticated ? (
+    return loggedUser.status ? (
         <p>
-            Welcome User!
+            Welcome {loggedUser.username} !
+            <br />
+            Your email is {loggedUser.email}
+            <br />
 
             <FontAwesome
                 onClick={() => history.push({ pathname: "/", isAuthenticated: true })}

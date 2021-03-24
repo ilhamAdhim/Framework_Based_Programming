@@ -14,22 +14,9 @@ import 'aos/dist/aos.css';
 import Profile from './Profile';
 
 const App = () => {
-
     useEffect(() => {
         AOS.init();
     }, [])
-
-    // const [isAuthenticated, setIsAuth] = useState(false);
-
-    /* const PrivateRoute = ({ children, ...rest }) => {
-        return (
-            <Route {...rest} render={({ location }) => isAuthenticated ? (children) :
-                <Redirect to={{
-                    pathname: "/login",
-                    state: { from: location }
-                }} />} />
-        )
-    } */
 
     return (
         <Router>

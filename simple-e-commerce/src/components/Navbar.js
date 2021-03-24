@@ -10,7 +10,8 @@ const Navbar = () => {
   const homeClass = location.pathname === "/" ? "nav-link px-md-4 active" : "nav-link px-md-4";
   const promoClass = location.pathname.match(/^\/promo/) ? "nav-link px-md-4 active" : "nav-link px-md-4";
 
-  let login = () => history.push({ pathname: location.pathname, isAuthenticated: true })
+  // let login = () => history.push({ pathname: location.pathname, isAuthenticated: true })
+  let login = () => history.push('/login')
 
   let logout = () => history.push({ pathname: location.pathname, isAuthenticated: false })
 
