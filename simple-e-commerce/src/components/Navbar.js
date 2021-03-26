@@ -3,6 +3,10 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { MDBBtn, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle } from "mdbreact";
 import FontAwesome from 'react-fontawesome';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../actions/authAction'
+
+
 const Navbar = () => {
   let history = useHistory()
   let location = useLocation()
@@ -10,10 +14,17 @@ const Navbar = () => {
   const homeClass = location.pathname === "/" ? "nav-link px-md-4 active" : "nav-link px-md-4";
   const promoClass = location.pathname.match(/^\/promo/) ? "nav-link px-md-4 active" : "nav-link px-md-4";
 
-  // let login = () => history.push({ pathname: location.pathname, isAuthenticated: true })
   let login = () => history.push('/login')
 
-  let logout = () => history.push({ pathname: location.pathname, isAuthenticated: false })
+  const loggedUser = useSelector(state => state.user)
+
+  const userDispatch = useDispatch()
+
+  // ? loginUser variable is used on onclick button, by updating state in store with dispatch. from authActions 
+  const logoutUser = () => {
+    userDispatch(logout())
+    history.push('/')
+  }
 
   return (
     <section style={{ height: '100%', width: '100%', boxSizing: 'border-box', backgroundColor: '#FFFFFF' }}>
@@ -64,7 +75,7 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="d-flex">
-              {!history.location.isAuthenticated ?
+              {!loggedUser.status ?
                 <MDBBtn onClick={login} color="amber" >
                   Login
               </MDBBtn>
@@ -80,9 +91,9 @@ const Navbar = () => {
                       />
                     </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
-                      <MDBDropdownItem onClick={() => history.push({ pathname: "/profile", isAuthenticated: true })}>Profile</MDBDropdownItem>
+                      <MDBDropdownItem onClick={() => history.push("/profile")}>Profile</MDBDropdownItem>
                       <MDBDropdownItem divider />
-                      <MDBDropdownItem onClick={logout}>Logout</MDBDropdownItem>
+                      <MDBDropdownItem onClick={logoutUser}>Logout</MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </>}

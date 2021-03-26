@@ -1,12 +1,22 @@
 import React from 'react';
 import FontAwesome from "react-fontawesome";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useHistory } from "react-router-dom";
+import { logout } from '../actions/authAction'
+
 
 const Profile = props => {
     let history = useHistory();
     const loggedUser = useSelector(state => state.user)
+
+    const userDispatch = useDispatch()
+
+    // ? logoutUser variable is used on onclick button, by updating state in store with dispatch. from authActions 
+    const logoutUser = () => {
+        userDispatch(logout())
+        history.push('/')
+    }
 
     return loggedUser.status ? (
         <p>
@@ -25,10 +35,7 @@ const Profile = props => {
                 }}
             />
 
-            <button onClick={() => {
-                // fakeAuth.signout(() => history.push("/"))
-                history.push({ pathname: "/", isAuthenticated: false })
-            }}>
+            <button onClick={logoutUser}>
                 Sign Out
                 </button>
         </p >

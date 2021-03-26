@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductCard from "./ProductCard";
 import { MDBRow, MDBCol, MDBCardGroup } from 'mdbreact';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export const sampleProducts = [
     {
@@ -103,13 +104,22 @@ export const sampleProducts = [
 ]
 
 const ProductList = (props) => {
-    //Later fetch data from https://product-service-indent.herokuapp.com/product
+
+    const [products, setProducts] = useState([])
+
+    useEffect(async () => {
+        const { data } = await axios.get('http://localhost:3001/products')
+        setProducts(data)
+    }, [])
+
+    const productList = props.data ? props.data : products;
+
     return (
         <>
             <h1 className='text-center mb-4'>{props.promoName ?? 'All products'}</h1>
             <MDBCardGroup>
                 <MDBRow>
-                    {props.data.map(item =>
+                    {productList.map(item =>
                         <MDBCol md="4" style={{ marginBottom: '2em' }} key={item._id}>
                             <Link to={`/detail/${item.product_name.replace(/ /g, '_')}`} key={item._id} style={{ color: 'black' }}>
                                 <ProductCard

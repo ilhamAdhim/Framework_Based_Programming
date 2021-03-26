@@ -10,7 +10,6 @@ import "../styles/footer.css";
 
 
 const ShopPage = () => {
-
     return (
         <>
             <Navbar />

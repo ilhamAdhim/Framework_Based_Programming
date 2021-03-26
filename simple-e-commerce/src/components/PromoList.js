@@ -28,6 +28,7 @@ const PromoList = () => {
         setFilteredProduct(() => sampleProducts.filter(item => item.promo === selectedPromo))
         console.log(`Displaying product for promo ${selectedPromo}`)
     }, [selectedPromo])
+
     return (
         <>
             <MDBCardGroup style={{ padding: '1em' }}>
@@ -43,7 +44,6 @@ const PromoList = () => {
                     )}
                 </MDBRow>
             </MDBCardGroup>
-
 
             <ProductList data={filteredProduct === undefined ? sampleProducts : filteredProduct} promoName={selectedPromo} />
         </>

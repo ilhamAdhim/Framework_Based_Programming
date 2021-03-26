@@ -17,6 +17,8 @@ export function ScrollToTopOnMount() {
 }
 
 const ItemDetailPage = () => {
+    // Fetch data from local json server
+
     let history = useHistory();
     let { productName } = useParams();
 
@@ -30,7 +32,6 @@ const ItemDetailPage = () => {
     return (
         <>
             <ScrollToTopOnMount />
-
             <Navbar />
             <MDBContainer>
                 <MDBRow>
