@@ -26,7 +26,7 @@ const Profile = props => {
             <br />
 
             <FontAwesome
-                onClick={() => history.push({ pathname: "/", isAuthenticated: true })}
+                onClick={() => history.push("/")}
                 className='text-center'
                 name='arrow-circle-left'
                 size='2x'

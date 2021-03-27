@@ -3,12 +3,11 @@ import "../styles/login.css";
 import {
   Link, useHistory
 } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from '../actions/authAction'
 
 const LoginPage = () => {
 
-  const isLoggedIn = useSelector(state => state.user)
   const loginDispatch = useDispatch()
 
   // ? Get input value for password and email input fields

@@ -7,7 +7,6 @@ import Footer from '../components/Footer';
 import FontAwesome from "react-fontawesome";
 import ProductCard from "../components/ProductCard";
 
-
 export function ScrollToTopOnMount() {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -20,11 +19,10 @@ const ItemDetailPage = () => {
     // Fetch data from local json server
 
     let history = useHistory();
-    let { productName } = useParams();
+    let { id } = useParams();
 
     // Biar SEO Friendly
-    let formattedProduct = productName.replace(/_/g, ' ');
-    let product = sampleProducts.find(item => item.product_name === formattedProduct)
+    let product = sampleProducts.find(item => item._id === parseInt(id))
 
     let samePromoCode = sampleProducts.filter(item => item.promo === product.promo)
     let styleCard = { padding: '2em', marginBottom: '1em' }
@@ -77,12 +75,12 @@ const ItemDetailPage = () => {
                     </MDBCol>
                 </MDBRow>
 
-                <h4 className="p-4">You might also interested in </h4>
+                <h4 className="p-4">You might also interested in</h4>
                 <MDBCardGroup>
                     <MDBRow>
                         {samePromoCode.map(item =>
                             <MDBCol md="4" style={{ marginBottom: '2em' }}>
-                                <Link to={`/detail/${item.product_name.replace(/ /g, '_')}`} key={item._id} style={{ color: 'black' }} onClick={() => { window.scrollTo(0, 0); }}>
+                                <Link to={`/detail/${item._id}`} key={item._id} style={{ color: 'black' }} onClick={() => { window.scrollTo(0, 0); }}>
                                     <ProductCard id={item._id}
                                         name={item.product_name}
                                         price={item.price}
@@ -95,7 +93,6 @@ const ItemDetailPage = () => {
                         )}
                     </MDBRow>
                 </MDBCardGroup>
-
             </MDBContainer>
             <Footer />
         </>

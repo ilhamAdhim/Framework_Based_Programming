@@ -57,8 +57,8 @@ const Navbar = () => {
             data-bs-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation" >
+
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -92,6 +92,8 @@ const Navbar = () => {
                     </MDBDropdownToggle>
                     <MDBDropdownMenu basic>
                       <MDBDropdownItem onClick={() => history.push("/profile")}>Profile</MDBDropdownItem>
+                      <MDBDropdownItem divider />
+                      <MDBDropdownItem onClick={() => history.push("/cart")}>Cart</MDBDropdownItem>
                       <MDBDropdownItem divider />
                       <MDBDropdownItem onClick={logoutUser}>Logout</MDBDropdownItem>
                     </MDBDropdownMenu>

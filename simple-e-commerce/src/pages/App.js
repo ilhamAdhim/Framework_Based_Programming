@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ShopPage from './ShopPage';
 import LoginPage from './LoginPage';
 import PromoPage from "../pages/PromoPage";
+import CartPage from "../pages/CartPage";
 import ItemDetailPage from './ItemDetailPage';
 import {
     BrowserRouter as Router, Route, Switch, Redirect,
@@ -24,8 +25,9 @@ const App = () => {
                 <Route exact path="/" render={ShopPage} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/promo" component={PromoPage} />
+                <Route path="/cart" component={CartPage} />
                 <Route path="/profile" component={Profile} />
-                <Route path="/detail/:productName" component={ItemDetailPage} />
+                <Route path="/detail/:id" component={ItemDetailPage} />
                 {/* <PrivateRoute path="/profile" render={() => (<Profile auth={[isAuthenticated, setIsAuth]} />)} /> */}
                 <Redirect to="/" />
             </Switch>

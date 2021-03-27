@@ -121,7 +121,7 @@ const ProductList = (props) => {
                 <MDBRow>
                     {productList.map(item =>
                         <MDBCol md="4" style={{ marginBottom: '2em' }} key={item._id}>
-                            <Link to={`/detail/${item.product_name.replace(/ /g, '_')}`} key={item._id} style={{ color: 'black' }}>
+                            <Link to={`/detail/${item._id}`} key={item._id} style={{ color: 'black' }}>
                                 <ProductCard
                                     id={item._id}
                                     name={item.product_name}

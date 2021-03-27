@@ -2,15 +2,16 @@ export const userCart = (state = [], action) => {
     switch (action.type) {
         case 'ADD_CART':
             // TODO ADD_CART
-            break;
+            return action.payload
         case 'REMOVE_CART':
             // TODO REMOVE_CART
-            break;
+            return state.filter(item => item._id === action.payload._id)
         case 'UPDATE_CART':
             // TODO UPDATE_CART
-            break;
+            return state.map(item => item.id === action.payload.id ? { amount: item.amount++, ...item } : item)
+        case 'REDUCE_QTY':
+            return state.map(item => item.id === action.payload.id ? { amount: item.amount--, ...item } : item)
         default:
             return state
-
     }
 }
