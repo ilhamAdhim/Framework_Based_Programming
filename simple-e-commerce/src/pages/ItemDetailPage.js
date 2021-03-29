@@ -5,7 +5,6 @@ import FontAwesome from "react-fontawesome";
 import { addCart, addQty, reduceQty } from '../actions/cartAction';
 import ProductCard from "../components/ProductCard";
 import { useDispatch, useSelector } from 'react-redux';
-import { sampleProducts } from "../components/ProductList";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBBtn, MDBCardGroup } from 'mdbreact';
 import axios from 'axios';
@@ -17,17 +16,6 @@ export function ScrollToTopOnMount() {
 
     return null;
 }
-
-const clone = (obj) => Object.assign({}, obj);
-
-const renameKey = (object, key, newKey) => {
-    const clonedObj = clone(object);
-    const targetKey = clonedObj[key];
-    delete clonedObj[key];
-    clonedObj[newKey] = targetKey;
-    return clonedObj;
-
-};
 
 const ItemDetailPage = () => {
 
@@ -50,13 +38,11 @@ const ItemDetailPage = () => {
         setSingleItem(data.find(item => item.id === parseInt(idProduct)));
 
         setIsLoading(false)
-    }, [])
+    }, [idProduct])
 
     useEffect(() => {
         setSamePromoCode(products.filter(item => item.promo === singleItem.promo));
-        console.log(products)
-        console.log(singleItem.promo)
-    }, [singleItem])
+    }, [singleItem, idProduct])
 
     // Display products with same promo code
     // Display Clicked product from product list
@@ -68,30 +54,38 @@ const ItemDetailPage = () => {
     const decreaseAmountProduct = () => addCartDispatch(reduceQty(singleItem))
     const increaseAmountProduct = () => addCartDispatch(addQty(singleItem))
 
-    let amountProduct = currentCart.filter((item) => item.id == idProduct).length > 0 ?
-        currentCart.filter(item => item.id == idProduct)[0].amount : 0
+    let amountProduct = currentCart.filter((item) => item.id === parseInt(idProduct)).length > 0 ?
+        currentCart.filter(item => item.id === parseInt(idProduct))[0].amount : 0
 
     const redirectIfLoggedOut = () => loggedUser.status ? addCartHandler() : history.push('/login')
 
     const renderManageAmount = (
         <MDBRow>
-            <MDBBtn color="red" onClick={decreaseAmountProduct}>
-                <FontAwesome
-                    className='text-center'
-                    name='minus'
-                    size='2x'
-                    style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
-                />
-            </MDBBtn>
-            <p> {`${amountProduct}`} </p>
-            <MDBBtn color="green" onClick={increaseAmountProduct}>
-                <FontAwesome
-                    className='text-center'
-                    name='plus'
-                    size='2x'
-                    style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
-                />
-            </MDBBtn>
+            <MDBCol>
+                <MDBBtn color="red" onClick={decreaseAmountProduct}>
+                    <FontAwesome
+                        className='text-center'
+                        name='minus'
+                        size='2x'
+                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                    />
+                </MDBBtn>
+            </MDBCol>
+            <MDBCol>
+                <h2 style={{ textAlign: 'center', marginTop: '.5em', fontWeight: 'bold' }}> {`${amountProduct}`} </h2>
+            </MDBCol>
+
+            <MDBCol>
+                <MDBBtn color="green" onClick={increaseAmountProduct}>
+                    <FontAwesome
+                        className='text-center'
+                        name='plus'
+                        size='2x'
+                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                    />
+                </MDBBtn>
+            </MDBCol>
+
         </MDBRow>
     )
 
@@ -132,7 +126,7 @@ const ItemDetailPage = () => {
                                 <p className="text-muted"> {singleItem.description ?? ' '} </p>
 
                                 {
-                                    currentCart.filter((item) => item.id == idProduct).length > 0
+                                    currentCart.filter((item) => item.id === parseInt(idProduct)).length > 0
                                         ? renderManageAmount
                                         : <MDBBtn color="success" onClick={redirectIfLoggedOut}>
                                             <FontAwesome
@@ -153,15 +147,11 @@ const ItemDetailPage = () => {
                 <h4 className="p-4">You might also interested in</h4>
                 <MDBCardGroup>
                     <MDBRow>
-                        {samePromoCode.map((item) =>
+                        {samePromoCode.map(item =>
                             <MDBCol md="4" style={{ marginBottom: '2em' }}>
-                                <Link to={`/detail/${item.id}`} key={item.id} style={{ color: 'black' }} onClick={() => { window.scrollTo(0, 0); }}>
+                                <Link to={`/detail/${item.id}`} key={item.id} style={{ color: 'black' }} onClick={() => window.scrollTo(0, 0)}>
                                     <ProductCard id={item.id}
-                                        name={item.product_name}
-                                        price={item.price}
-                                        promo={item.promo}
-                                        image={item.image}
-                                        description={item.description}
+                                        {...item}
                                     />
                                 </Link>
                             </MDBCol>

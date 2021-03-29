@@ -13,12 +13,7 @@ const ProductList = (props) => {
                         <MDBCol md="4" style={{ marginBottom: '2em' }} key={item.id}>
                             <Link to={`/detail/${item.id}`} key={item.id} style={{ color: 'black' }}>
                                 <ProductCard
-                                    id={item.id}
-                                    name={item.name}
-                                    price={item.price}
-                                    promo={item.promo}
-                                    image={item.image}
-                                    description={item.description}
+                                    {...item}
                                 />
                             </Link>
                         </MDBCol>

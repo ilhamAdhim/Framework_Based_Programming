@@ -16,7 +16,7 @@ const ProductCard = props => {
     const history = useHistory();
 
     const addCartHandler = () => {
-        currentCart.find(item => props.id === item.id) == undefined
+        currentCart.find(item => props.id === item.id) === undefined
             ? addCartDispatch(addCart(currentCart, props))
             : addCartDispatch(addQty(props))
     }

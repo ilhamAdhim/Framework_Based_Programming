@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { MDBBtn, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle } from "mdbreact";
+import { MDBBtn, MDBCol, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBRow } from "mdbreact";
 import FontAwesome from 'react-fontawesome';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,6 +18,7 @@ const Navbar = () => {
   let login = () => history.push('/login')
 
   const loggedUser = useSelector(state => state.user)
+  const cartAmount = useSelector(state => state.cart)
 
   const userDispatch = useDispatch()
   const manageCart = useDispatch()
@@ -28,6 +29,14 @@ const Navbar = () => {
     userDispatch(logout())
     manageCart(emptyCart())
     history.push('/')
+  }
+
+  const circleStyle = {
+    width: '1.6em',
+    textAlign: 'center',
+    color: 'white',
+    background: 'red',
+    borderRadius: '50%',
   }
 
   return (
@@ -97,7 +106,13 @@ const Navbar = () => {
                     <MDBDropdownMenu basic>
                       <MDBDropdownItem onClick={() => history.push("/profile")}>Profile</MDBDropdownItem>
                       <MDBDropdownItem divider />
-                      <MDBDropdownItem onClick={() => history.push("/cart")}>Cart</MDBDropdownItem>
+                      <MDBDropdownItem onClick={() => history.push("/cart")}>
+                        <MDBRow>
+                          <MDBCol lg={8}> Cart </MDBCol>
+                          <MDBCol lg={2}> <div style={circleStyle}> {cartAmount.length} </div> </MDBCol>
+                        </MDBRow>
+
+                      </MDBDropdownItem>
                       <MDBDropdownItem divider />
                       <MDBDropdownItem onClick={logoutUser}>Logout</MDBDropdownItem>
                     </MDBDropdownMenu>

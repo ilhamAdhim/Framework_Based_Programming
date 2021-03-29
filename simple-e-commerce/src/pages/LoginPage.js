@@ -26,7 +26,7 @@ const LoginPage = () => {
   const inputValueEmail = (e) => setEmail(e.target.value)
 
   return (
-    <section style={{ height: '100%', width: '100%', boxSizing: 'border-box', backgroundColor: "#F5F5F5" }}>
+    <section style={{ width: '100%', boxSizing: 'border-box', backgroundColor: "#F5F5F5" }}>
 
       <div className="d-flex flex-column align-items-center h-100 flex-lg-row" style={{ fontFamily: 'Poppins' }} >
         <div className="position-relative d-none d-lg-block h-100 width-left-content-3-5" data-aos="fade-right">
@@ -80,7 +80,7 @@ const LoginPage = () => {
                 </div>
               </div>
               <div className="text-right" style={{ marginTop: '0.75rem' }}>
-                <a className="forgot-password-content-3-5 font-italic">Forgot Password?</a>
+                <a className="forgot-password-content-3-5 font-italic" href="#">Forgot Password?</a>
               </div>
               <Link style={{ textDecoration: 'none' }} to='/profile' >
                 <button className="btn btn-fill-content-3-5 d-block w-100" onClick={loginUser}>Log In To My Account</button>

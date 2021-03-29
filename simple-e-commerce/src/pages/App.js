@@ -13,8 +13,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import Profile from './Profile';
-import { useDispatch, useSelector } from 'react-redux';
-import { emptyCart } from "../actions/cartAction";
 
 const App = () => {
     useEffect(() => {
