@@ -5,6 +5,7 @@ import FontAwesome from 'react-fontawesome';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/authAction'
+import { emptyCart } from '../actions/cartAction';
 
 
 const Navbar = () => {
@@ -19,10 +20,13 @@ const Navbar = () => {
   const loggedUser = useSelector(state => state.user)
 
   const userDispatch = useDispatch()
+  const manageCart = useDispatch()
+
 
   // ? loginUser variable is used on onclick button, by updating state in store with dispatch. from authActions 
   const logoutUser = () => {
     userDispatch(logout())
+    manageCart(emptyCart())
     history.push('/')
   }
 

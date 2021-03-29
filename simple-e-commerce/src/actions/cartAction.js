@@ -2,7 +2,7 @@
 export const addCart = (productList, product) => {
     return {
         type: 'ADD_CART',
-        payload: [...productList, { ...product, amount: 1 }]
+        payload: [...productList, { amount: 1, ...product }]
     }
 }
 
@@ -26,5 +26,11 @@ export const reduceQty = (product) => {
     return {
         type: 'REDUCE_QTY',
         payload: product,
+    }
+}
+
+export const emptyCart = () => {
+    return {
+        type: 'EMPTY_CART',
     }
 }

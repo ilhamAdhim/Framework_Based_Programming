@@ -6,7 +6,10 @@ export const authUser = (state = false, action) => {
                 status: true
             }
         case 'LOGOUT':
-            return state = false
+            return state = {
+                ...action.payload,
+                status: false
+            }
         default:
             return state
     }

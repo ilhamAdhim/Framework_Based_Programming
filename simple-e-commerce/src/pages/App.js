@@ -13,6 +13,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import Profile from './Profile';
+import { useDispatch, useSelector } from 'react-redux';
+import { emptyCart } from "../actions/cartAction";
 
 const App = () => {
     useEffect(() => {
@@ -22,12 +24,12 @@ const App = () => {
     return (
         <Router>
             <Switch>
-                <Route exact path="/" render={ShopPage} />
+                <Route exact path="/" component={ShopPage} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/promo" component={PromoPage} />
                 <Route path="/cart" component={CartPage} />
                 <Route path="/profile" component={Profile} />
-                <Route path="/detail/:id" component={ItemDetailPage} />
+                <Route path="/detail/:idProduct" component={ItemDetailPage} />
                 {/* <PrivateRoute path="/profile" render={() => (<Profile auth={[isAuthenticated, setIsAuth]} />)} /> */}
                 <Redirect to="/" />
             </Switch>

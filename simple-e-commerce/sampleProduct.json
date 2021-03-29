@@ -1,100 +1,76 @@
 {
   "products": [
     {
-      "_id": 1,
-      "product_name": "Penggaris 50 cm",
-      "description": "penggaris dapat digunakan untuk mengukur dan membuat garis",
-      "price": 77000,
+      "id": 1,
+      "name": "Sanken ADR 210 GE Setrika Listrik Hijau",
+      "description": "Jual Sanken ADR 210 GE Setrika Listrik Hijau Murah",
+      "price": 159100,
       "promo": "flashSale",
-      "image": "https://ae01.alicdn.com/kf/HTB13aVlaffsK1RjSszbq6AqBXXaI/1-Pcs-Lytwtw-S-Kawaii-Transparan-Sederhana-Wortel-Kaktus-Penggaris-Plastik-Alat-Ukur-Penggaris-Lurus-Pelajar.jpg"
+      "image": "https://ecs7.tokopedia.net/img/cache/700/hDjmkQ/2020/8/27/dcbf6107-a780-46f9-83d7-71edaf2523b9.png"
     },
     {
-      "_id": 2,
-      "product_name": "Kemeja hitam",
+      "id": 2,
+      "name": "Setrika PHILIPS GC 1418",
       "description": "kemeja berbahan kain import terbaik. Tersedia ukuran S, M, L, XL",
-      "price": 300000,
-      "promo": "flashSale",
-      "image": "https://cardinal.co.id/wp-content/uploads/2020/03/FAKAI02364J.01A_1.jpg"
-    },
-    {
-      "_id": 3,
-      "product_name": "Jas putih pria",
-      "description": "jas putih pria dari bahan import terbaik. Tersedia ukuran S, M, L, XL",
       "price": 450000,
-      "promo": "monthSale",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS64u-fX5B5hacOKl_zsdVY051tA1xsaVRwKg&usqp=CAU"
-    },
-    {
-      "_id": 4,
-      "product_name": "Kalkulator Citizen SDC 868 L",
-      "description": "Kalkulator Citizen SDC 868 L Kalkulator 12 Digit Sudah Termasuk Batrai",
-      "price": 50000,
-      "promo": "gebyarMaret",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCm1aWJrjQpLjCDbK5ARbmuKUEHnC-Zuy8ug&usqp=CAU"
-    },
-    {
-      "_id": 5,
-      "product_name": "Smart TV 32 inch",
-      "description": "smart LED TV Type LEDScreen Size 32 Inches Resolution 1366 x 768 Pixels",
-      "price": 2000000,
-      "promo": "gebyarMaret",
-      "image": "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2020/06/22/2421975989.jpg"
-    },
-    {
-      "_id": 6,
-      "product_name": "Tunik Muslimah Talita Tunik",
-      "description": "Baju tunik ini dibuat menggunakan bahan Mosscreap. Bahan Mosscreap ini sangat nyaman digunakan karena dingin, tidak mudah kusut, tidak transparan dan lembut pastinya",
-      "price": 77000,
-      "promo": "monthSale",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMrM26Es2fmw3F7J0X8c5soGKXEL1ooowIhg&usqp=CAU"
-    },
-    {
-      "_id": 7,
-      "product_name": "Penggaris 50 cm",
-      "description": "penggaris dapat digunakan untuk mengukur dan membuat garis",
-      "price": 77000,
       "promo": "flashSale",
-      "image": "https://ae01.alicdn.com/kf/HTB13aVlaffsK1RjSszbq6AqBXXaI/1-Pcs-Lytwtw-S-Kawaii-Transparan-Sederhana-Wortel-Kaktus-Penggaris-Plastik-Alat-Ukur-Penggaris-Lurus-Pelajar.jpg"
+      "image": "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/6/12/51707538/51707538_8d7e87bf-a21f-4328-8f44-486af9294402_700_700.jpg"
     },
     {
-      "_id": 8,
-      "product_name": "Mouse Rexus Xierra G10",
-      "description": "Mouse Rexus, gokil harganya. manteb kualitasnya",
-      "price": 150000,
+      "id": 3,
+      "name": "SETRIKA MIYAKO E 1009 M",
+      "description": "Miyako Setrika - EI1009M. Memiliki lapisan plat yang berkualitas menjadikan pakaian anda cepat rapi dan licin seketika.      ",
+      "price": 143000,
+      "promo": "monthSale",
+      "image": "https://images.duniamasak.com/images/12697/setrika-miyako-e-1009-m-24123_521.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "Philips HD1172",
+      "description": " Otomatis Thermostat Setrika Philips 1172 READY STOCK, SILAHKAN LANGSUNG DI ORDER",
+      "price": 148000,
+      "promo": "gebyarMaret",
+      "image": "https://p.ipricegroup.com/uploaded_678b79d4742dbeae907bd4bde1ab1e81.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Setrika Philips 1173 Dry Iron",
+      "description": "PHILIPS DRY IRON HD1173 / Setrika DAILY SERIES HD 1173 NEW BLACK PROMO",
+      "price": 295000,
+      "promo": "gebyarMaret",
+      "image": "https://s0.bukalapak.com/img/0072357842/s-330-330/PHILIPSDRYIRONSETRIKAHD1173HITAM_2_scaledjpg_scaled.jpg.webp"
+    },
+    {
+      "id": 6,
+      "name": "NI-22AWT - Setrika Panasonic 400 Watt",
+      "description": "Terbuat dari Burn Free Material, anti api dan tidak mudah terbakar. Aliran listrik akan putus secara otomatis (automatic cut-off) bila setrika ditinggal lama dalam keadaan menyala. Anda pun terhindar dari bahaya korslet, kebakaran, atau kesetrum.",
+      "price": 365000,
+      "promo": "monthSale",
+      "image": "https://s1.bukalapak.com/img/63056067971/s-330-330/setrika3.jpg.webp"
+    },
+    {
+      "id": 7,
+      "name": "Cosmos Setrika Listrik CIS 418",
+      "description": "Cosmos Setrika 400 Watt - CIS418 baru dari Cosmos. Memiliki plat yang terbuat dari bahan stainless steel membuat pakaian anda menjadi tidak lengket dan cepat rapi karena proses hantaran panas yang sempurna ke seluruh plat setrika.",
+      "price": 105000,
       "promo": "flashSale",
-      "image": "https://cf.shopee.co.id/file/11f3e836d2e0a1519898a00daad8eb6f"
+      "image": "https://s1.bukalapak.com/img/61961068321/s-330-330/Cosmos_Setrika_Listrik_CIS_418_Stainless_Steel_400watt.jpg.webp"
     },
     {
-      "_id": 9,
-      "product_name": "Keyboard Digital Alliance",
+      "id": 8,
+      "name": "Setrika Philips GC160 Garansi Resmi",
+      "description": "Philips Setrika kering GC160 yang memiliki ujung alas ramping, mampu mencapai bagian sulit dengan mudah.",
+      "price": 375000,
+      "promo": "flashSale",
+      "image": "https://s3.bukalapak.com/img/3191179918/s-330-330/Setrika_Philips_GC160_Garansi_Resmi.jpg.webp"
+    },
+    {
+      "id": 9,
+      "name": "Keyboard Digital Alliance",
       "description": "Keyboard paling gokil, murmer, yok beli sis mumpung lagi murah meriah duarrr",
       "price": 40000,
       "promo": "monthSale",
       "image": "https://www.digitalalliance.co.id/wp-content/uploads/2018/02/MM_03.jpg"
-    },
-    {
-      "_id": 10,
-      "product_name": "Monitor portable",
-      "description": "Monitor bisa dibawa kemana mana, ekonomis, praktis, dan mobilitas tinggi",
-      "price": 80000,
-      "promo": "monthSale",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/8161FbWWa-L._AC_SL1500_.jpg"
-    },
-    {
-      "_id": 11,
-      "product_name": "Monitor portable",
-      "description": "Monitor bisa dibawa kemana mana, ekonomis, praktis, dan mobilitas tinggi",
-      "price": 80000,
-      "promo": "gebyarMaret",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/8161FbWWa-L._AC_SL1500_.jpg"
-    },
-    {
-      "_id": 12,
-      "product_name": "Monitor portable",
-      "description": "Monitor bisa dibawa kemana mana, ekonomis, praktis, dan mobilitas tinggi",
-      "price": 80000,
-      "promo": "gebyarMaret",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/8161FbWWa-L._AC_SL1500_.jpg"
     }
   ]
 }

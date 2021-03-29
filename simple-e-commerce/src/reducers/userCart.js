@@ -1,16 +1,16 @@
 export const userCart = (state = [], action) => {
     switch (action.type) {
         case 'ADD_CART':
-            // TODO ADD_CART
             return action.payload
         case 'REMOVE_CART':
-            // TODO REMOVE_CART
-            return state.filter(item => item._id === action.payload._id)
+            return state.filter(item => item.id === action.payload.id)
+        case 'EMPTY_CART':
+            return state = []
         case 'UPDATE_CART':
-            // TODO UPDATE_CART
-            return state.map(item => item.id === action.payload.id ? { amount: item.amount++, ...item } : item)
+            return state.map(item => item.id == action.payload.id ? { amount: item.amount++, ...item } : item)
         case 'REDUCE_QTY':
-            return state.map(item => item.id === action.payload.id ? { amount: item.amount--, ...item } : item)
+            // TODO If amount is zero, make it remove the product from cart
+            return state.map(item => item.id == action.payload.id ? { amount: item.amount--, ...item } : item)
         default:
             return state
     }

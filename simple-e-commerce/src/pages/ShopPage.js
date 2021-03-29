@@ -1,20 +1,27 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ProductList from "../components/ProductList";
 import { Container } from "react-bootstrap";
-import { sampleProducts } from "../components/ProductList";
 import "../styles/navbar.css";
 import "../styles/footer.css";
+import axios from 'axios';
 
 
-const ShopPage = () => {
+function ShopPage() {
+
+    const [products, setProducts] = useState([])
+
+    useEffect(async () => {
+        const { data } = await axios.get('http://localhost:3001/products')
+        setProducts(data)
+    }, [])
     return (
         <>
             <Navbar />
             <Container>
-                <ProductList data={sampleProducts} />
+                <ProductList data={products} />
             </Container>
             <Footer />
         </>
