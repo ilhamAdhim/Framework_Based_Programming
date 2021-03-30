@@ -47,7 +47,7 @@ const CartPage = props => {
                             )}
                             <hr />
                             <MDBRow style={{ color: 'rgb(235, 64, 52)' }}>
-                                <MDBCol lg={9}>
+                                <MDBCol lg='9'>
                                     <h3 style={{ textAlign: 'right', fontWeight: 'bold' }}>Total Price : </h3>
                                 </MDBCol>
                                 <MDBCol>

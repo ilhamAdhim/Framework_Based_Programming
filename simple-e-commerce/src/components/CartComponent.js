@@ -4,10 +4,25 @@ import FontAwesome from 'react-fontawesome';
 
 const CartComponent = props => {
     const { decreaseAmountProduct, increaseAmountProduct, removeCartHandler, ...singleItem } = props
+
+    const styleRemoveButton = {
+        transform: 'translate(80em, -12em)',
+        width: '20px',
+        paddingLeft: '1em'
+    }
+
+    const styleRemoveButtonMobileView = {
+        transform: 'translate(20em, -22em)',
+        width: '20px',
+        paddingLeft: '1em'
+    }
+
+    const styleButton = window.screen.width > 890 ? styleRemoveButton : styleRemoveButtonMobileView
+
     return (
-        <MDBCard border="dashed" style={{ padding: '2em' }} >
+        <MDBCard ecommerce={true} style={{ padding: '2em', marginTop: '2em' }} >
             <MDBRow>
-                <MDBCol lg={2} s={12} style={{ textAlign: 'center' }}>
+                <MDBCol lg='2' sm='12' style={{ textAlign: 'center' }}>
                     <img src={props.image} width={100} />
                 </MDBCol>
                 <MDBCol>
@@ -16,7 +31,7 @@ const CartComponent = props => {
                 <MDBCol>
                     {`Rp. ${(props.price * props.amount).toLocaleString('id-ID')}`}
                 </MDBCol>
-                <MDBCol lg={4} s={12} style={{ textAlign: 'center' }}>
+                <MDBCol lg='4' s='12' style={{ textAlign: 'center', marginTop: '2em' }}>
                     <MDBBtn color="red" onClick={() => props.decreaseAmountProduct(singleItem)}>
                         <FontAwesome
                             name='minus'
@@ -34,9 +49,9 @@ const CartComponent = props => {
                     </MDBBtn>
                 </MDBCol>
             </MDBRow>
-            <MDBBtn color="orange" onClick={() => props.removeCartHandler(singleItem)} style={{ width: '20px' }}>
+            <MDBBtn color="orange" onClick={() => props.removeCartHandler(singleItem)} style={styleButton}>
                 <FontAwesome
-                    name='trash'
+                    name='close'
                     size='2x'
                     style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)', textAlign: 'center' }}
                 />

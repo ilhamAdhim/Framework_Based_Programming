@@ -1,7 +1,6 @@
 import { MDBBtn, MDBRow } from 'mdbreact';
 import React from 'react';
 import { useHistory } from 'react-router';
-import { ReactSVG } from 'react-svg'
 import { ReactComponent as ReactLogo } from './add_to_cart.svg';
 
 const AddToCart = () => {

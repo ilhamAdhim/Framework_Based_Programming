@@ -5,7 +5,6 @@ import FontAwesome from 'react-fontawesome';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/authAction'
-import { emptyCart } from '../actions/cartAction';
 
 
 const Navbar = () => {
@@ -21,13 +20,11 @@ const Navbar = () => {
   const cartAmount = useSelector(state => state.cart)
 
   const userDispatch = useDispatch()
-  const manageCart = useDispatch()
 
 
   // ? loginUser variable is used on onclick button, by updating state in store with dispatch. from authActions 
   const logoutUser = () => {
     userDispatch(logout())
-    manageCart(emptyCart())
     history.push('/')
   }
 
@@ -103,13 +100,21 @@ const Navbar = () => {
                         size='2x'
                       />
                     </MDBDropdownToggle>
-                    <MDBDropdownMenu basic>
+                    <MDBDropdownMenu>
                       <MDBDropdownItem onClick={() => history.push("/profile")}>Profile</MDBDropdownItem>
                       <MDBDropdownItem divider />
                       <MDBDropdownItem onClick={() => history.push("/cart")}>
                         <MDBRow>
-                          <MDBCol lg={8}> Cart </MDBCol>
-                          <MDBCol lg={2}> <div style={circleStyle}> {cartAmount.length} </div> </MDBCol>
+                          <MDBCol lg='8'> Cart </MDBCol>
+                          {
+                            cartAmount.length !== 0 ?
+                              <MDBCol lg='2'>
+                                <div style={circleStyle}> {cartAmount.length}
+                                </div>
+                              </MDBCol>
+                              :
+                              ''
+                          }
                         </MDBRow>
 
                       </MDBDropdownItem>

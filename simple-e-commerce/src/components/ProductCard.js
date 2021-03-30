@@ -1,5 +1,6 @@
 import React from "react";
-import { MDBBtn, MDBCard, MDBCardFooter, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol, MDBRow } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBTooltip, MDBCardFooter, MDBBtn, MDBIcon, MDBCol, MDBRow } from "mdbreact";
+
 import { useDispatch, useSelector } from "react-redux";
 import { addCart, addQty } from '../actions/cartAction'
 import { useHistory } from "react-router";
@@ -24,24 +25,31 @@ const ProductCard = props => {
     const redirectIfLoggedOut = () => loggedUser.status ? addCartHandler() : history.push('/login')
 
     return (
-        <MDBCard data-aos="fade-left">
-            <MDBCardImage className="img-fluid" src={props.image} waves top hover style={{ height: '260px', }} />
-            <MDBCardBody>
-                <MDBCardTitle>{props.name}</MDBCardTitle>
-                <hr />
-                {/* Only show first 70 char in description */}
-                <MDBCardText>{props.description.replace(/^(.{70}[^\s]*).*/, "$1") + '...'}</MDBCardText>
-                <MDBRow>
-                    <MDBCol md="6"> <p className="text-left" style={{ fontSize: '.9em' }}  >{`Promo : ${props.promo}`}</p> </MDBCol>
-                    <MDBCol md="6"> <h5 className="text-right" >{`Rp. ${props.price.toLocaleString()}`}</h5>   </MDBCol>
-                </MDBRow>
+        <MDBCard className="m-2" cascade ecommerce style={{ height: '550px' }}>
+            <MDBCardImage cascade top src={props.image} waves />
+            <MDBCardBody cascade className="text-center">
 
-                <MDBCardFooter>
-                    <MDBBtn color="success" onClick={redirectIfLoggedOut}>Cart</MDBBtn>
-                </MDBCardFooter>
+                <MDBCardTitle>
+                    <strong>{props.name}</strong>
+                </MDBCardTitle>
+                <MDBCardText>
+                    {props.description.replace(/^(.{80}[^\s]*).*/, "$1") + '...'}
+                </MDBCardText>
+                <div style={{ position: 'absolute' }} className='fixed-bottom p-4'>
+                    <span className="float-left">{`Rp. ${props.price.toLocaleString()}`}</span>
+                    <span className="float-right">
+                        <MDBTooltip placement="top">
+                            <MDBBtn color="transparent" size="lg" className="p-1 m-0 z-depth-0" >
+                                <MDBIcon icon="shopping-cart" size='2x' className="green-text pr-3" onClick={redirectIfLoggedOut} />
+                            </MDBBtn>
+                            <div>Added to Wishlist</div>
+                        </MDBTooltip>
+                    </span>
+                </div>
             </MDBCardBody>
         </MDBCard>
     );
-};
+}
+
 
 export default ProductCard;

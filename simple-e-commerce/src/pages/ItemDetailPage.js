@@ -6,7 +6,7 @@ import { addCart, addQty, reduceQty } from '../actions/cartAction';
 import ProductCard from "../components/ProductCard";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useParams } from "react-router-dom";
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBBtn, MDBCardGroup } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBBtn, MDBCardGroup } from 'mdbreact';
 import axios from 'axios';
 
 export function ScrollToTopOnMount() {
@@ -116,14 +116,19 @@ const ItemDetailPage = () => {
                                         </figcaption>
                                     </MDBCol>
                                 </MDBRow>
-                                {<MDBCardImage className="img-fluid" src={singleItem.image ?? ' '} waves top hover />}
+
+                                <MDBRow>
+                                    <MDBCol>
+                                        <img height='268' width='268' src={singleItem.image ?? ' '} className="rounded mx-auto d-block" />
+                                    </MDBCol>
+                                </MDBRow>
                             </MDBCard>
                         </MDBCol>
                         <MDBCol md="4">
                             <MDBCard style={styleCard}>
                                 <h4 className='text-right mt-4' style={{ fontWeight: 'bold' }}> Rp. {singleItem.price.toLocaleString('id-ID') ?? ''} </h4>
                                 <hr />
-                                <p className="text-muted"> {singleItem.description ?? ' '} </p>
+                                <p className="text-muted" style={{ textAlign: 'justify' }}> {singleItem.description ?? ' '} </p>
 
                                 {
                                     currentCart.filter((item) => item.id === parseInt(idProduct)).length > 0
@@ -148,7 +153,7 @@ const ItemDetailPage = () => {
                 <MDBCardGroup>
                     <MDBRow>
                         {samePromoCode.map(item =>
-                            <MDBCol md="4" style={{ marginBottom: '2em' }}>
+                            <MDBCol md="4" style={{ marginBottom: '2em' }} key={item.id}>
                                 <Link to={`/detail/${item.id}`} key={item.id} style={{ color: 'black' }} onClick={() => window.scrollTo(0, 0)}>
                                     <ProductCard id={item.id}
                                         {...item}

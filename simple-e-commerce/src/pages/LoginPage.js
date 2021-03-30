@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "../styles/login.css";
 import {
-  Link, useHistory
+  useHistory
 } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { login } from '../actions/authAction'
@@ -18,16 +18,17 @@ const LoginPage = () => {
 
   // ? loginUser variable is used on onclick button, by updating state in store with dispatch. from authActions 
   const loginUser = () => {
-    loginDispatch(login({ username: 'Ilham Adhim', emailAddress: email }))
-    history.push('/profile')
+    if (email.length > 0 && password.length > 0) {
+      loginDispatch(login({ username: 'Ilham Adhim', emailAddress: email }))
+      history.push('/profile')
+    }
   }
 
   const inputValuePassword = (e) => setPassword(e.target.value)
   const inputValueEmail = (e) => setEmail(e.target.value)
 
   return (
-    <section style={{ width: '100%', boxSizing: 'border-box', backgroundColor: "#F5F5F5" }}>
-
+    <section style={{ height: '100vh', boxSizing: 'border-box', backgroundColor: "#F5F5F5" }}>
       <div className="d-flex flex-column align-items-center h-100 flex-lg-row" style={{ fontFamily: 'Poppins' }} >
         <div className="position-relative d-none d-lg-block h-100 width-left-content-3-5" data-aos="fade-right">
           <img className="position-absolute img-fluid centered-content-3-5"
@@ -82,13 +83,10 @@ const LoginPage = () => {
               <div className="text-right" style={{ marginTop: '0.75rem' }}>
                 <a className="forgot-password-content-3-5 font-italic" href="#">Forgot Password?</a>
               </div>
-              <Link style={{ textDecoration: 'none' }} to='/profile' >
+              <div style={{ color: 'white' }} >
                 <button className="btn btn-fill-content-3-5 d-block w-100" onClick={loginUser}>Log In To My Account</button>
-              </Link>
+              </div>
             </form>
-            <p className="text-center bottom-caption-content-3-5">Don't have an account yet?
-                <span className="green-bottom-caption-content-3-5">Register Here</span>
-            </p>
           </div>
         </div>
       </div>

@@ -10,13 +10,14 @@ const ProductList = (props) => {
             <MDBCardGroup>
                 <MDBRow>
                     {props.data.map(item =>
-                        <MDBCol md="4" style={{ marginBottom: '2em' }} key={item.id}>
+                        <MDBCol sm="12" md="6" lg="4" style={{ marginBottom: '2em' }} key={item.id}>
                             <Link to={`/detail/${item.id}`} key={item.id} style={{ color: 'black' }}>
                                 <ProductCard
                                     {...item}
                                 />
                             </Link>
                         </MDBCol>
+
                     )}
                 </MDBRow>
             </MDBCardGroup>
