@@ -3,7 +3,7 @@ import React from 'react';
 import FontAwesome from 'react-fontawesome';
 
 const CartComponent = props => {
-    const { decreaseAmountProduct, increaseAmountProduct, ...singleItem } = props
+    const { decreaseAmountProduct, increaseAmountProduct, removeCartHandler, ...singleItem } = props
     return (
         <MDBCard border="dashed" style={{ padding: '2em' }} >
             <MDBRow>
@@ -34,6 +34,13 @@ const CartComponent = props => {
                     </MDBBtn>
                 </MDBCol>
             </MDBRow>
+            <MDBBtn color="orange" onClick={() => props.removeCartHandler(singleItem)} style={{ width: '20px' }}>
+                <FontAwesome
+                    name='trash'
+                    size='2x'
+                    style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)', textAlign: 'center' }}
+                />
+            </MDBBtn>
         </MDBCard>
     );
 };

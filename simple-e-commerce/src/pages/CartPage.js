@@ -2,6 +2,7 @@ import { MDBCol, MDBContainer, MDBRow } from 'mdbreact';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCart, reduceQty, addQty, removeCart } from '../actions/cartAction';
+import AddToCart from '../assets/AddToCart';
 import CartComponent from '../components/CartComponent';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -26,32 +27,37 @@ const CartPage = props => {
     const totalPerItem = currentCart.map(itemCart => [parseInt(itemCart.price) * parseInt(itemCart.amount)])
     // Sum all price of each item to get total price
 
-    const totalPrice = totalPerItem.reduce((a, b) => parseInt(a) + parseInt(b))
-
-
-    /* let amountProduct = currentCart.filter((item) => item.id === idProduct).length > 0 ?
-        currentCart.filter(item => item.id === idProduct)[0].amount : 0 */
+    const totalPrice = currentCart.length > 0 ? totalPerItem.reduce((a, b) => parseInt(a) + parseInt(b)) : 0
+    // ! Empty cart and access the cart is still error
     return (
         <>
             <Navbar />
             <MDBContainer>
-                <h1>My Cart</h1>
-                {currentCart.map((item) =>
-                    <CartComponent key={item.id}
-                        {...item}
-                        increaseAmountProduct={increaseAmountProduct}
-                        decreaseAmountProduct={decreaseAmountProduct}
-                    />
-                )}
-                <hr />
-                <MDBRow style={{ color: 'rgb(235, 64, 52)' }}>
-                    <MDBCol lg={9}>
-                        <h3 style={{ textAlign: 'right', fontWeight: 'bold' }}>Checkout</h3>
-                    </MDBCol>
-                    <MDBCol>
-                        <h3 style={{ fontWeight: 'bold' }}> {`Rp. ${totalPrice.toLocaleString('id-ID')}`}</h3>
-                    </MDBCol>
-                </MDBRow>
+                {
+                    currentCart.length > 0 ?
+                        <>
+                            <h1>My Cart</h1>
+                            {currentCart.map(item =>
+                                <CartComponent key={item.id}
+                                    {...item}
+                                    increaseAmountProduct={increaseAmountProduct}
+                                    decreaseAmountProduct={decreaseAmountProduct}
+                                    removeCartHandler={removeCartHandler}
+                                />
+                            )}
+                            <hr />
+                            <MDBRow style={{ color: 'rgb(235, 64, 52)' }}>
+                                <MDBCol lg={9}>
+                                    <h3 style={{ textAlign: 'right', fontWeight: 'bold' }}>Total Price : </h3>
+                                </MDBCol>
+                                <MDBCol>
+                                    <h3 style={{ fontWeight: 'bold' }}> {`Rp. ${totalPrice.toLocaleString('id-ID')}`}</h3>
+                                </MDBCol>
+                            </MDBRow>
+                        </>
+                        :
+                        <AddToCart />
+                }
             </MDBContainer>
             <Footer />
 
