@@ -1,3 +1,13 @@
 {
-    "cart": []
+  "cart": [
+    {
+      "id": 1,
+      "amount": 1,
+      "name": "Sanken ADR 210 GE Setrika Listrik Hijau",
+      "price": 159100,
+      "promo": "flashSale",
+      "image": "https://ecs7.tokopedia.net/img/cache/700/hDjmkQ/2020/8/27/dcbf6107-a780-46f9-83d7-71edaf2523b9.png",
+      "description": "Jual Sanken ADR 210 GE Setrika Listrik Hijau Murah"
+    }
+  ]
 }

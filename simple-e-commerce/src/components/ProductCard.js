@@ -18,7 +18,7 @@ const ProductCard = props => {
 
     const addCartHandler = () => {
         currentCart.find(item => props.id === item.id) === undefined
-            ? addCartDispatch(addCart(currentCart, props))
+            ? addCartDispatch(addCart(props))
             : addCartDispatch(addQty(props))
     }
 

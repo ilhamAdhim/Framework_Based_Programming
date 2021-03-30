@@ -49,10 +49,10 @@ const ItemDetailPage = () => {
     let styleCard = { padding: '2em', marginBottom: '1em' }
 
     // ! Cart update differently in here
-    const addCartHandler = () => addCartDispatch(addCart(currentCart, singleItem))
+    const addCartHandler = () => addCartDispatch(addCart(singleItem))
 
     const decreaseAmountProduct = () => addCartDispatch(reduceQty(singleItem))
-    const increaseAmountProduct = () => addCartDispatch(addQty(singleItem))
+    const increaseAmountProduct = () => { console.log(singleItem); addCartDispatch(addQty(singleItem)) }
 
     let amountProduct = currentCart.filter((item) => item.id === parseInt(idProduct)).length > 0 ?
         currentCart.filter(item => item.id === parseInt(idProduct))[0].amount : 0

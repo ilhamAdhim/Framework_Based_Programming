@@ -2,6 +2,7 @@
   "products": [
     {
       "id": 1,
+      "amount": 0,
       "name": "Sanken ADR 210 GE Setrika Listrik Hijau",
       "description": "Jual Sanken ADR 210 GE Setrika Listrik Hijau Murah",
       "price": 159100,
@@ -10,6 +11,7 @@
     },
     {
       "id": 2,
+      "amount": 0,
       "name": "Setrika PHILIPS GC 1418",
       "description": "kemeja berbahan kain import terbaik. Tersedia ukuran S, M, L, XL",
       "price": 450000,
@@ -18,6 +20,7 @@
     },
     {
       "id": 3,
+      "amount": 0,
       "name": "SETRIKA MIYAKO E 1009 M",
       "description": "Miyako Setrika - EI1009M. Memiliki lapisan plat yang berkualitas menjadikan pakaian anda cepat rapi dan licin seketika.      ",
       "price": 143000,
@@ -26,6 +29,7 @@
     },
     {
       "id": 4,
+      "amount": 0,
       "name": "Philips HD1172",
       "description": " Otomatis Thermostat Setrika Philips 1172 READY STOCK, SILAHKAN LANGSUNG DI ORDER",
       "price": 148000,
@@ -34,6 +38,7 @@
     },
     {
       "id": 5,
+      "amount": 0,
       "name": "Setrika Philips 1173 Dry Iron",
       "description": "PHILIPS DRY IRON HD1173 / Setrika DAILY SERIES HD 1173 NEW BLACK PROMO",
       "price": 295000,
@@ -42,6 +47,7 @@
     },
     {
       "id": 6,
+      "amount": 0,
       "name": "NI-22AWT - Setrika Panasonic 400 Watt",
       "description": "Terbuat dari Burn Free Material, anti api dan tidak mudah terbakar. Aliran listrik akan putus secara otomatis (automatic cut-off) bila setrika ditinggal lama dalam keadaan menyala. Anda pun terhindar dari bahaya korslet, kebakaran, atau kesetrum.",
       "price": 365000,
@@ -50,6 +56,7 @@
     },
     {
       "id": 7,
+      "amount": 0,
       "name": "Cosmos Setrika Listrik CIS 418",
       "description": "Cosmos Setrika 400 Watt - CIS418 baru dari Cosmos. Memiliki plat yang terbuat dari bahan stainless steel membuat pakaian anda menjadi tidak lengket dan cepat rapi karena proses hantaran panas yang sempurna ke seluruh plat setrika.",
       "price": 105000,
@@ -58,6 +65,7 @@
     },
     {
       "id": 8,
+      "amount": 0,
       "name": "Setrika Philips GC160 Garansi Resmi",
       "description": "Philips Setrika kering GC160 yang memiliki ujung alas ramping, mampu mencapai bagian sulit dengan mudah.",
       "price": 375000,
@@ -66,6 +74,7 @@
     },
     {
       "id": 9,
+      "amount": 0,
       "name": "Keyboard Digital Alliance",
       "description": "Keyboard paling gokil, murmer, yok beli sis mumpung lagi murah meriah duarrr",
       "price": 40000,

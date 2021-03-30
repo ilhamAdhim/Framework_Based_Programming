@@ -1,7 +1,7 @@
 export const userCart = (state = [], action) => {
     switch (action.type) {
         case 'ADD_CART':
-            return action.payload
+            return [...state, action.payload]
         case 'REMOVE_CART':
             return state.filter((item = []) => item.id !== action.payload.id)
         case 'EMPTY_CART':

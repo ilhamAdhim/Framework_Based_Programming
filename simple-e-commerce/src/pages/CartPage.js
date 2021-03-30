@@ -12,7 +12,6 @@ const CartPage = props => {
     const currentCart = useSelector(state => state.cart)
     const cartDispatcher = useDispatch()
 
-    const addCartHandler = (item) => cartDispatcher(addCart(currentCart, item))
     const removeCartHandler = (item) => cartDispatcher(removeCart(item))
 
     // Limit the amount, so that it wont go negative
