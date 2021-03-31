@@ -14,6 +14,9 @@ const ProductList = (props) => {
                             <Link to={`/detail/${item.id}`} key={item.id} style={{ color: 'black' }}>
                                 <ProductCard
                                     {...item}
+                                    increaseAmountProduct={props.increaseAmountProduct}
+                                    decreaseAmountProduct={props.decreaseAmountProduct}
+                                    removeCartHandler={props.removeCartHandler}
                                 />
                             </Link>
                         </MDBCol>
