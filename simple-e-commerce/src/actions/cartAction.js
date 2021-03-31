@@ -37,16 +37,6 @@ export const removeCart = product => {
     /* 
  */
     return dispatch => {
-        const dataInput = {
-            "id": product.id,
-            "amount": 0,
-            "name": product.name,
-            "price": product.price,
-            "promo": product.promo,
-            "image": product.image,
-            "description": product.description
-        }
-
         return axios.delete(`http://localhost:3002/cart/${product.id}`, { headers: { "Content-Type": "application/json" } })
             .then(res => dispatch({ type: 'REMOVE_CART', payload: product }))
             .catch(() => dispatch({ type: 'REMOVE_CART', payload: product }))

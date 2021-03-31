@@ -23,7 +23,7 @@ const CartComponent = props => {
         <MDBCard ecommerce={true} style={{ padding: '2em', marginTop: '2em' }} >
             <MDBRow>
                 <MDBCol lg='2' sm='12' style={{ textAlign: 'center' }}>
-                    <img src={props.image} width={100} />
+                    <img src={props.image} width={100} alt={props.image} />
                 </MDBCol>
                 <MDBCol>
                     {props.name}

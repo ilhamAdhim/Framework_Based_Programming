@@ -8,6 +8,15 @@
       "promo": "flashSale",
       "image": "https://ecs7.tokopedia.net/img/cache/700/hDjmkQ/2020/8/27/dcbf6107-a780-46f9-83d7-71edaf2523b9.png",
       "description": "Jual Sanken ADR 210 GE Setrika Listrik Hijau Murah"
+    },
+    {
+      "id": 2,
+      "amount": 2,
+      "name": "Setrika PHILIPS GC 1418",
+      "price": 450000,
+      "promo": "flashSale",
+      "image": "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/6/12/51707538/51707538_8d7e87bf-a21f-4328-8f44-486af9294402_700_700.jpg",
+      "description": "kemeja berbahan kain import terbaik. Tersedia ukuran S, M, L, XL"
     }
   ]
 }

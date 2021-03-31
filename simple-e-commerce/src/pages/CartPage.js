@@ -2,7 +2,7 @@ import axios from 'axios';
 import { MDBCol, MDBContainer, MDBRow } from 'mdbreact';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCart, reduceQty, addQty, removeCart, syncStore } from '../actions/cartAction';
+import { reduceQty, addQty, removeCart, syncStore } from '../actions/cartAction';
 import AddToCart from '../assets/AddToCart';
 import CartComponent from '../components/CartComponent';
 import Footer from '../components/Footer';
@@ -19,7 +19,7 @@ const CartPage = () => {
     useEffect(async () => {
         const { data } = await axios.get('http://localhost:3002/cart')
         // Set state based on local redux store
-        if (currentCart.length == 0) {
+        if (currentCart.length === 0) {
             setCardProduct(data)
             // Synchronize redux store with json response (so the data won't gone if refreshed)
             data.forEach(updateCartObj => {

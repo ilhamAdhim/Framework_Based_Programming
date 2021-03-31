@@ -1,9 +1,5 @@
 import React from "react";
-import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBTooltip, MDBBtn, MDBIcon } from "mdbreact";
-
-import { useDispatch, useSelector } from "react-redux";
-import { addCart } from '../actions/cartAction'
-import { useHistory } from "react-router";
+import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText } from "mdbreact";
 
 // TODO dispatch action to change global state (cart)
 // ? if the data is already in global state, then update the amount instead of adding new object
@@ -12,11 +8,6 @@ import { useHistory } from "react-router";
 const ProductCard = props => {
 
     const { decreaseAmountProduct, increaseAmountProduct, removeCartHandler, ...singleItem } = props
-
-    const addCartDispatch = useDispatch()
-    const loggedUser = useSelector(state => state.user)
-    const currentCart = useSelector(state => state.cart)
-    const history = useHistory();
 
     return (
         <MDBCard className="m-2" cascade ecommerce style={{ height: '550px' }}>

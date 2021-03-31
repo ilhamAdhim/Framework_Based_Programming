@@ -81,7 +81,7 @@ const LoginPage = () => {
                 </div>
               </div>
               <div className="text-right" style={{ marginTop: '0.75rem' }}>
-                <a className="forgot-password-content-3-5 font-italic" href="#">Forgot Password?</a>
+                <div className="forgot-password-content-3-5 font-italic">Forgot Password?</div>
               </div>
               <div style={{ color: 'white' }} >
                 <button className="btn btn-fill-content-3-5 d-block w-100" onClick={loginUser}>Log In To My Account</button>

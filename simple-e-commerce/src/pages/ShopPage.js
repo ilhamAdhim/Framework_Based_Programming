@@ -7,7 +7,7 @@ import { Container } from "react-bootstrap";
 import "../styles/navbar.css";
 import "../styles/footer.css";
 import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addQty, reduceQty, removeCart } from '../actions/cartAction';
 
 
@@ -21,7 +21,6 @@ function ShopPage() {
     }, [])
 
     // TODO Get cart from context
-    const currentCart = useSelector(state => state.cart)
     const cartDispatcher = useDispatch()
 
     const removeCartHandler = (item) => cartDispatcher(removeCart(item))

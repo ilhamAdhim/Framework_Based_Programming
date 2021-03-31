@@ -92,7 +92,8 @@ const ItemDetail = props => {
 
                     <MDBRow>
                         <MDBCol>
-                            <img height='268' width='268' src={singleItem.image ?? ' '} className="rounded mx-auto d-block" />
+                            <img height='268' width='268' src={singleItem.image ?? ' '}
+                                className="rounded mx-auto d-block" alt={singleItem.image} />
                         </MDBCol>
                     </MDBRow>
                 </MDBCard>
