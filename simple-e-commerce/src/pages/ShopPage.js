@@ -9,6 +9,7 @@ import "../styles/footer.css";
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { addQty, reduceQty, removeCart } from '../actions/cartAction';
+import Thinking from '../assets/Thinking';
 
 
 function ShopPage() {
@@ -37,6 +38,7 @@ function ShopPage() {
         <>
             <Navbar />
             <Container>
+                <Thinking />
                 <ProductList
                     data={products}
                     increaseAmountProduct={increaseAmountProduct}
