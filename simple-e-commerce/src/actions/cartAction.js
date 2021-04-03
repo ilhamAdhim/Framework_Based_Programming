@@ -1,11 +1,3 @@
-
-// export const addCartSuccess = (productList) => {
-//     return {
-//         type: 'ADD_CART',
-//         payload: [...productList]
-//     }
-// }
-
 import axios from "axios"
 
 export const addCart = product => {
@@ -34,8 +26,6 @@ export const syncStore = product => {
 }
 
 export const removeCart = product => {
-    /* 
- */
     return dispatch => {
         return axios.delete(`http://localhost:3002/cart/${product.id}`, { headers: { "Content-Type": "application/json" } })
             .then(res => dispatch({ type: 'REMOVE_CART', payload: product }))
@@ -43,7 +33,6 @@ export const removeCart = product => {
     }
 }
 
-// TODO
 export const updateCart = product => {
     return dispatch => {
         const dataInput = {
@@ -62,7 +51,6 @@ export const updateCart = product => {
             }).catch(() => dispatch({ type: 'UPDATE_CART', payload: product }))
     }
 }
-// TODO
 
 export const addQty = updateCart
 

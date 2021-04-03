@@ -3,7 +3,7 @@ import { MDBBtn, MDBCard, MDBCol, MDBRow } from 'mdbreact';
 import { useHistory, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import FontAwesome from "react-fontawesome";
-import { addCart, addQty, reduceQty } from '../actions/cartAction';
+import { addCart, addQty, reduceQty, removeCart } from '../actions/cartAction';
 
 const ItemDetail = props => {
     let { ...singleItem } = props
@@ -20,8 +20,10 @@ const ItemDetail = props => {
     const addCartHandler = () => addCartDispatch(addCart(singleItem))
 
     const decreaseAmountProduct = (item) => {
-        if (item.amount > 0) {
+        if (item.amount > 1) {
             addCartDispatch(reduceQty(item))
+        } else {
+            addCartDispatch(removeCart(item))
         }
     }
     const increaseAmountProduct = (item) => { addCartDispatch(addQty(item)) }

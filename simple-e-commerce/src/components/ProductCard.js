@@ -21,8 +21,7 @@ const ProductCard = props => {
                     {singleItem.description.replace(/^(.{80}[^\s]*).*/, "$1") + '...'}
                 </MDBCardText>
                 <div style={{ position: 'absolute' }} className='fixed-bottom p-4'>
-                    <span className="float-left">{`Rp. ${singleItem.price.toLocaleString()}`}</span>
-
+                    <span className="float-left" style={{ fontWeight: 'bold' }}>{`Rp. ${singleItem.price.toLocaleString('id-ID')}`}</span>
                 </div>
             </MDBCardBody>
         </MDBCard>

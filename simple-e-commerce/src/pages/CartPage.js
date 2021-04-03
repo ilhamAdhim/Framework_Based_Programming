@@ -34,8 +34,10 @@ const CartPage = () => {
     const increaseAmountProduct = item => cartDispatcher(addQty(item))
     // Limit the amount, so that it wont go negative
     const decreaseAmountProduct = item => {
-        if (item.amount > 0) {
+        if (item.amount > 1) {
             cartDispatcher(reduceQty(item))
+        } else {
+            cartDispatcher(removeCart(item))
         }
     }
 
@@ -44,7 +46,7 @@ const CartPage = () => {
     // Sum all price of each item to get total price
 
     const totalPrice = currentCart.length > 0 ? totalPerItem.reduce((a, b) => parseInt(a) + parseInt(b)) : 0
-    // ! Empty cart and access the cart is still error
+
     return (
         <>
             <Navbar />
