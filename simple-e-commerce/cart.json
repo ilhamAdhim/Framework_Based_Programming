@@ -1,22 +1,3 @@
 {
-  "cart": [
-    {
-      "id": 2,
-      "amount": 1,
-      "name": "Setrika PHILIPS GC 1418",
-      "price": 450000,
-      "promo": "flashSale",
-      "image": "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/6/12/51707538/51707538_8d7e87bf-a21f-4328-8f44-486af9294402_700_700.jpg",
-      "description": "kemeja berbahan kain import terbaik. Tersedia ukuran S, M, L, XL"
-    },
-    {
-      "id": 7,
-      "amount": 2,
-      "name": "Cosmos Setrika Listrik CIS 418",
-      "price": 105000,
-      "promo": "flashSale",
-      "image": "https://s1.bukalapak.com/img/61961068321/s-330-330/Cosmos_Setrika_Listrik_CIS_418_Stainless_Steel_400watt.jpg.webp",
-      "description": "Cosmos Setrika 400 Watt - CIS418 baru dari Cosmos. Memiliki plat yang terbuat dari bahan stainless steel membuat pakaian anda menjadi tidak lengket dan cepat rapi karena proses hantaran panas yang sempurna ke seluruh plat setrika."
-    }
-  ]
+  "cart": []
 }
