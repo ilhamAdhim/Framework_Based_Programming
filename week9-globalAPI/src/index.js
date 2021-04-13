@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import BlogPost from "./components/BlogPost";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import reportWebVitals from './reportWebVitals';
+import StudentsList from './components/StudentsList';
 
 ReactDOM.render(
-  <BlogPost />,
-  document.getElementById('content')
+  <App />,
+  // document.getElementById('content')
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,6 +1,7 @@
 import { domainPath } from './Config';
 
 const DeleteAPI = (path, data) => {
+    console.log(path)
     const promise = new Promise((resolve, reject) => {
         fetch(`${domainPath}/${path}/${data}`,
             {

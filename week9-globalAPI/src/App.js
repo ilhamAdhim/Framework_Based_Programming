@@ -1,25 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import AddStudents from './components/AddStudents';
+import StudentsList from './components/StudentsList';
+import API from './services';
+import { useState, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [data, setData] = useState([])
+
+	const getFromAPIServer = () => {
+		API.getStudents().then(result => {
+			setData(result)
+		})
+	}
+
+	const handleDeleteStudent = (data) => {
+		API.deleteStudents(data)
+			.then(() => {
+				getFromAPIServer()
+			})
+	}
+
+
+	useEffect(() => {
+		getFromAPIServer()
+	}, [])
+
+	const handleSaveButton = (newItem) => {
+		console.log(newItem)
+		API.postStudents(newItem)
+			.then(() => {
+				getFromAPIServer(data);
+			})
+	}
+
+	return (
+		<Container>
+			<AddStudents handleSaveButton={handleSaveButton}  ></AddStudents>
+			<StudentsList data={data} handleDeleteStudent={handleDeleteStudent}></StudentsList >
+		</Container >
+	);
 }
 
 export default App;
