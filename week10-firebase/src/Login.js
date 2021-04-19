@@ -1,27 +1,37 @@
-import React, {useState,useContext} from "react"
-import {AuthContext} from "./index"
+import React, { useState, useContext } from "react"
+import { AuthContext } from "./index"
 import firebase from "firebase"
 
 const Login = () => {
-    const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("")
-    const [error,setErrors] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [error, setErrors] = useState("")
 
     const Auth = useContext(AuthContext)
     const handleForm = e => {
         e.preventDefault()
         firebase
             .auth()
-            .signInWithEmailAndPassword(email,password)
-            .then(res=>{
-                if(res.user) Auth.setLoggedIn(true)
+            .signInWithEmailAndPassword(email, password)
+            .then(res => {
+                if (res.user) Auth.setLoggedIn(true)
             })
-            .catch(e=>{
+            .catch(e => {
                 setErrors(e.message)
             })
     };
+    const handleFormLoginGoogle = () => {
+        firebase
+            .auth()
+            .signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((res) => {
+                if (res.user) Auth.setLoggedIn(true);
+            }).catch((error) => {
+                console.log(error.message)
+            })
+    }
 
-    return(
+
+    return (
         <div>
             <h1>Login</h1>
             <form onSubmit={e => handleForm(e)}>
@@ -41,11 +51,11 @@ const Login = () => {
                     placeholder="password"
                     autoComplete="on"
                 />
-                <hr/>
-                <button className="googleBtn" type="button">
+                <hr />
+                <button className="googleBtn" type="button" onClick={handleFormLoginGoogle}>
                     {/* <img
                         src= "https://upload.wikimedia.org/wikipedia/commons/5/53/Google%22G%22_Logo.svg"
-                        alt="logo"/> */}JOIN WITH GOOGLE
+                        alt="logo"/> */}LOGIN WITH GOOGLE
                 </button>
                 <button type="submit">Login</button>
                 <span>{error}</span>

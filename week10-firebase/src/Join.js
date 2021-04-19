@@ -1,27 +1,37 @@
-import React, {useState,useContext} from "react"
-import {AuthContext} from "./index"
+import React, { useState, useContext } from "react"
+import { AuthContext } from "./index"
 import firebase from "firebase"
 
 const Join = () => {
-    const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("")
-    const [error,setErrors] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [error, setErrors] = useState("")
 
     const Auth = useContext(AuthContext)
     const handleForm = e => {
         e.preventDefault()
         firebase
             .auth()
-            .createUserWithEmailAndPassword(email,password)
-            .then(res=>{
-                if(res.user) Auth.setLoggedIn(true)
+            .createUserWithEmailAndPassword(email, password)
+            .then(res => {
+                if (res.user) Auth.setLoggedIn(true)
             })
-            .catch(e=>{
+            .catch(e => {
                 setErrors(e.message)
             })
     };
 
-    return(
+    const handleFormJoinGoogle = () => {
+        firebase
+            .auth()
+            .signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((res) => {
+                if (res.user) Auth.setLoggedIn(true)
+            }).catch((error) => {
+                console.log(error.message)
+            })
+    }
+
+    return (
         <div>
             <h1>Join</h1>
             <form onSubmit={e => handleForm(e)}>
@@ -41,8 +51,8 @@ const Join = () => {
                     placeholder="password"
                     autoComplete="on"
                 />
-                <hr/>
-                <button className="googleBtn" type="button">
+                <hr />
+                <button className="googleBtn" type="button" onClick={handleFormJoinGoogle}>
                     {/* <img
                         src= "https://upload.wikimedia.org/wikipedia/commons/5/53/Google%22G%22_Logo.svg"
                         alt="logo"/> */} JOIN WITH GOOGLE
