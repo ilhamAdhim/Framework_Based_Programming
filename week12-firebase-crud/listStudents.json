@@ -1,0 +1,58 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "NIM": 180823453,
+      "name": "Yoipe",
+      "address": "Jl. Soekarno Hatta No. 9 Malang",
+      "phone": "081802023249",
+      "year": 2018,
+      "status": "aktif"
+    },
+    {
+      "id": 2,
+      "NIM": 140823423,
+      "name": "Ihdam Alim",
+      "address": "Jl. Arut No. 18 Surabaya",
+      "phone": "081802023523",
+      "year": 2018,
+      "status": "lulus"
+    },
+    {
+      "id": 3,
+      "NIM": 140823653,
+      "name": "Prawira Arifin",
+      "address": "Jl. Cerita sedih No. 32 Surabaya",
+      "phone": "081802023523",
+      "year": 2018,
+      "status": "aktif"
+    },
+    {
+      "id": 4,
+      "NIM": 140821453,
+      "name": "Wijanarko Gokil",
+      "address": "Jl. Menur No. 11 Surabaya",
+      "phone": "089134003",
+      "year": 2016,
+      "status": "lulus"
+    },
+    {
+      "id": 5,
+      "NIM": 11394513,
+      "name": "Sayudha Budiman",
+      "address": "Jl. Menur No. 9 Surabaya",
+      "phone": "045952045",
+      "year": 2018,
+      "status": "aktif"
+    },
+    {
+      "NIM": 93012938,
+      "name": "Ioppie Eiger",
+      "address": "Jalan Mantap Indah no 38",
+      "phone": "1237418",
+      "year": "2019",
+      "status": "lulus",
+      "id": 6
+    }
+  ]
+}
