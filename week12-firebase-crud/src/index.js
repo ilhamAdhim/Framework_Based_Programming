@@ -9,9 +9,9 @@ import reportWebVitals from './reportWebVitals';
 import StudentsList from './components/StudentsList';
 
 ReactDOM.render(
-  <App />,
-  // document.getElementById('content')
-  document.getElementById('root')
+  <BlogPost />,
+  document.getElementById('content')
+  // document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

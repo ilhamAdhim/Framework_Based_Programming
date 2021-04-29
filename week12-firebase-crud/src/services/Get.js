@@ -1,19 +1,14 @@
 import { domainPath } from './Config';
-
-const DeleteAPI = (path, data) => {
-    console.log(path)
+const GetAPI = path => {
     const promise = new Promise((resolve, reject) => {
-        fetch(`${domainPath}/${path}/${data}`,
-            {
-                method: 'DELETE'
-            })
-            .then(result => {
+        fetch(`${domainPath}/${path}`)
+            .then(response => response.json())
+            .then((result) => {
                 resolve(result);
             }, (err) => {
                 reject(err);
             })
     })
     return promise;
-
 }
-export default DeleteAPI;
+export default GetAPI;
