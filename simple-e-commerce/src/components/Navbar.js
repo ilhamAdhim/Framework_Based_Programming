@@ -123,8 +123,6 @@ const Navbar = () => {
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </>}
-
-
             </div>
           </div>
         </div>

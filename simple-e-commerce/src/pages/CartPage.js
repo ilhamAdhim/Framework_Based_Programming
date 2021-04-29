@@ -1,43 +1,61 @@
+import axios from 'axios';
 import { MDBCol, MDBContainer, MDBRow } from 'mdbreact';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCart, reduceQty, addQty, removeCart } from '../actions/cartAction';
+import { reduceQty, addQty, removeCart, syncStore } from '../actions/cartAction';
 import AddToCart from '../assets/AddToCart';
 import CartComponent from '../components/CartComponent';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
-const CartPage = props => {
+const CartPage = () => {
+    const [cardProduct, setCardProduct] = useState([])
+
     // TODO Get cart from context
     const currentCart = useSelector(state => state.cart)
     const cartDispatcher = useDispatch()
 
-    const addCartHandler = (item) => cartDispatcher(addCart(currentCart, item))
-    const removeCartHandler = (item) => cartDispatcher(removeCart(item))
+    // ? Fetch data from localhost:3002/cart once loaded
+    useEffect(async () => {
+        const { data } = await axios.get('http://localhost:3002/cart')
+        // Set state based on local redux store
+        if (currentCart.length === 0) {
+            setCardProduct(data)
+            // Synchronize redux store with json response (so the data won't gone if refreshed)
+            data.forEach(updateCartObj => {
+                cartDispatcher(syncStore(updateCartObj))
+            });
+        } else {
+            setCardProduct(currentCart)
+        }
+    }, [currentCart])
 
+    const removeCartHandler = (item) => cartDispatcher(removeCart(item))
+    const increaseAmountProduct = item => cartDispatcher(addQty(item))
     // Limit the amount, so that it wont go negative
     const decreaseAmountProduct = item => {
-        if (item.amount > 0) {
+        if (item.amount > 1) {
             cartDispatcher(reduceQty(item))
+        } else {
+            cartDispatcher(removeCart(item))
         }
     }
-    const increaseAmountProduct = item => cartDispatcher(addQty(item))
 
     // Get total price of each item
     const totalPerItem = currentCart.map(itemCart => [parseInt(itemCart.price) * parseInt(itemCart.amount)])
     // Sum all price of each item to get total price
 
     const totalPrice = currentCart.length > 0 ? totalPerItem.reduce((a, b) => parseInt(a) + parseInt(b)) : 0
-    // ! Empty cart and access the cart is still error
+
     return (
         <>
             <Navbar />
             <MDBContainer>
                 {
-                    currentCart.length > 0 ?
+                    cardProduct.length > 0 ?
                         <>
                             <h1>My Cart</h1>
-                            {currentCart.map(item =>
+                            {cardProduct.map(item =>
                                 <CartComponent key={item.id}
                                     {...item}
                                     increaseAmountProduct={increaseAmountProduct}

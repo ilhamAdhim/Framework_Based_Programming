@@ -5,11 +5,18 @@ import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import { allReducers } from './reducers';
 import { Provider } from 'react-redux';
 
-const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  allReducers,
+  composeEnhancer(applyMiddleware(thunk)),
+);
 
 ReactDOM.render(
   <Provider store={store}>
