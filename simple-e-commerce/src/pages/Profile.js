@@ -27,7 +27,7 @@ const Profile = props => {
         <>
             <Navbar />
             <MDBContainer>
-                {loggedUser.status ? (
+                {loggedUser.isAuthenticated ? (
                     <>
                         <MDBCard cascade wide >
                             <FontAwesome
