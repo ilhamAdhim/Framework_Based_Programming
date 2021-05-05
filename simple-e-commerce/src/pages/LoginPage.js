@@ -4,14 +4,15 @@ import {
   Redirect,
   useHistory
 } from "react-router-dom";
+
 import { useDispatch, useSelector } from 'react-redux';
 import { login, loginWithGoogle } from '../actions/authAction'
+
+// ? Icons 
 import { ReactComponent as IconPassword } from '../assets/icons/password.svg'
 import { ReactComponent as IconEyeOpen } from '../assets/icons/eye.svg'
 import { ReactComponent as IconEyeClose } from '../assets/icons/eyeClose.svg'
 import { ReactComponent as IconEmail } from '../assets/icons/email.svg'
-import firebase from "firebase"
-
 
 const LoginPage = () => {
 
@@ -94,7 +95,10 @@ const LoginPage = () => {
                 <button className="btn btn-fill-content-3-5 d-block w-100" onClick={loginUser}>Log In To My Account</button>
               </div>
               <div style={{ color: 'white', paddingBottom: '2em' }} >
-                <button className="btn btn-fill-content-3-5 d-block w-100" onClick={loginUserWithGoogle}>Log In With Google</button>
+                <button className="btn btn-fill-google-content-3-5 d-block w-100" style={{ color: "black" }} onClick={loginUserWithGoogle}>
+                  <img src="https://cdn.worldvectorlogo.com/logos/google-icon.svg" height={20} style={{ paddingRight: '2em' }} />
+                   Log In With Google
+                  </button>
               </div>
             </div>
           </div>

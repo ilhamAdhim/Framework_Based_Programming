@@ -1,4 +1,4 @@
-import axios from 'axios';
+import firebase from "firebase"
 import { MDBCardGroup, MDBCol, MDBRow } from 'mdbreact';
 import React, { useEffect, useState } from 'react';
 import ProductList from "../components/ProductList";
@@ -14,11 +14,14 @@ const PromoList = () => {
     const handleOnClickPromo = e => setSelectedPromo(e.target.value)
 
     useEffect(async () => {
-        setIsLoading(true)
-        const { data } = await axios.get('http://localhost:3001/products')
-        setProduct(data)
-
-        setIsLoading(false)
+        let ref = firebase.database().ref("products/")
+        ref.on('value', snapshot => {
+            setIsLoading(true)
+            const state = snapshot.val()
+            console.log(state)
+            setProduct(state)
+            setIsLoading(false)
+        })
     }, [])
 
     useEffect(() => {

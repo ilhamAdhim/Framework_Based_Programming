@@ -9,6 +9,7 @@ const firebaseConfig = {
     storageBucket: "simple-ecommerce-7dcff.appspot.com",
     messagingSenderId: "909458835959",
     appId: "1:909458835959:web:47767ec49f879f151e06f2",
+    databaseURL: "https://simple-ecommerce-7dcff-default-rtdb.asia-southeast1.firebasedatabase.app/",
     measurementId: "G-357TRKJGYD"
 };
 

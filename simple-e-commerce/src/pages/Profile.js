@@ -42,30 +42,24 @@ const Profile = props => {
                             <MDBRow>
                                 <MDBCol md='4' sm='12'>
                                     <Image src='https://avatars.githubusercontent.com/u/43105014?v=4' width='150' roundedCircle style={{ marginLeft: '6em' }} />
-                                    <h2 className='p-4 text-center'> Hello {loggedUser.username} !</h2>
+                                    <h2 className='p-4 text-center'> Hello {loggedUser.user.displayName} !</h2>
                                 </MDBCol>
                                 <MDBCol lg='8' sm='12' className='mt-4'>
                                     <div className='ml-4 text-center'>
-                                        Your email is {loggedUser.email} <br />
+                                        Your email is {loggedUser.user.email} <br />
 
                                         <blockquote className="quote-card mt-4">
                                             <div>
                                                 Mengoding tak ada kata terlambat <br />
                                         Mari menggokil setiap saat
                                     </div>
-
                                             <cite>
                                                 Penggokil
                                     </cite>
                                         </blockquote>
                                     </div>
-
-
                                 </MDBCol>
                             </MDBRow>
-
-
-
                             <MDBRow style={{ textAlign: 'center' }}>
                                 <MDBCol lg='6' sm='12'>
                                     <MDBBtn color='dark' onClick={logoutUser} style={{ width: '90%' }}>

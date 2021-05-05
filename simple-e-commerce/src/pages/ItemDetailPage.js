@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import ProductCard from "../components/ProductCard";
 import { Link, useParams } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBCardGroup } from 'mdbreact';
-import axios from 'axios';
+import firebase from "firebase"
 import ItemDetail from '../components/ItemDetail';
 
 export function ScrollToTopOnMount() {
@@ -19,23 +19,26 @@ const ItemDetailPage = () => {
     let { idProduct } = useParams();
 
     // TODO Fetch data from local json server
-    const [singleItem, setSingleItem] = useState({})
-    const [isLoading, setIsLoading] = useState(true)
+    const [singleItem, setSingleItem] = useState()
+    const [isLoading, setIsLoading] = useState({})
     const [samePromoCode, setSamePromoCode] = useState([])
     const [products, setProducts] = useState([])
 
     useEffect(async () => {
-        setIsLoading(true)
-        const { data } = await axios.get('http://localhost:3001/products');
-        setProducts(data)
-        setSingleItem(data.find(item => item.id === parseInt(idProduct)));
-
-        setIsLoading(false)
+        let ref = firebase.database().ref("products/")
+        ref.on('value', snapshot => {
+            setIsLoading(true)
+            const state = snapshot.val()
+            setProducts(state)
+            setSingleItem(state.find(item => item.id === parseInt(idProduct)));
+            setIsLoading(false)
+        })
     }, [idProduct])
 
     useEffect(() => {
         setSamePromoCode(products.filter(item => item.promo === singleItem.promo));
     }, [singleItem, idProduct])
+
 
     // Display products with same promo code
 

@@ -6,7 +6,6 @@ import FontAwesome from 'react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/authAction'
 
-
 const Navbar = () => {
   let history = useHistory()
   let location = useLocation()
@@ -20,7 +19,6 @@ const Navbar = () => {
   const cartAmount = useSelector(state => state.cart)
 
   const userDispatch = useDispatch()
-
 
   // ? loginUser variable is used on onclick button, by updating state in store with dispatch. from authActions 
   const logoutUser = () => {
@@ -85,7 +83,7 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="d-flex">
-              {!loggedUser.status ?
+              {!loggedUser.isAuthenticated ?
                 <MDBBtn onClick={login} color="amber" >
                   Login
               </MDBBtn>
