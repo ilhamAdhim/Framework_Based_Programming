@@ -1,3 +1,4 @@
+import firebase from "firebase"
 import { myFirebase } from "../firebase";
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -48,6 +49,7 @@ const verifySuccess = () => {
         type: VERIFY_SUCCESS
     };
 };
+
 export const login = (email, password) => dispatch => {
     dispatch(requestLogin());
     myFirebase
@@ -61,6 +63,7 @@ export const login = (email, password) => dispatch => {
             dispatch(loginError());
         });
 };
+
 export const logout = () => dispatch => {
     dispatch(requestLogout());
     myFirebase
@@ -72,6 +75,7 @@ export const logout = () => dispatch => {
             dispatch(logoutError());
         });
 };
+
 export const verifyAuth = () => dispatch => {
     dispatch(verifyRequest());
     myFirebase.auth().onAuthStateChanged(user => {
@@ -81,3 +85,14 @@ export const verifyAuth = () => dispatch => {
         dispatch(verifySuccess());
     });
 };
+
+export const loginWithGoogle = () => dispatch => {
+    dispatch(requestLogin());
+    myFirebase
+        .auth()
+        .signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((res) => {
+            if (res.user) dispatch(receiveLogin(res.user));
+        }).catch((error) => {
+            console.log(error.message)
+        })
+}
