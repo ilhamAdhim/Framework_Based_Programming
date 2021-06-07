@@ -7,8 +7,10 @@ export const userCart = (state = [], action) => {
         case 'EMPTY_CART':
             return state = []
         case 'UPDATE_CART':
-            return state.map(item => item.id === action.payload.id ? { amount: item.amount++, ...item } : item)
+            console.log("beratmabh", state)
+            return state.map(item => item.id === action.payload.id ? { amount: item.amount++, ...item } : '')
         case 'REDUCE_QTY':
+            console.log("berkurang", state)
             return state.map(item => item.id === action.payload.id ? { amount: item.amount--, ...item } : item)
         default:
             return state

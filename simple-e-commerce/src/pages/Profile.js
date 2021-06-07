@@ -6,10 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useHistory } from "react-router-dom";
 import { logout } from '../actions/authAction'
+import { syncStore } from '../actions/cartAction';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import '../styles/quotes.css';
 
+import firebase from "firebase"
+import { useEffect } from 'react';
 
 const Profile = props => {
     let history = useHistory();
@@ -22,6 +25,25 @@ const Profile = props => {
         userDispatch(logout())
         history.push('/')
     }
+
+    const currentCart = useSelector(state => state.cart)
+
+    const cartDispatcher = useDispatch()
+
+    // ? Fetch cart data from firebase once loaded
+    useEffect(async () => {
+        let ref = firebase.database().ref(`carts/${loggedUser.user.uid}`)
+        ref.on('value', snapshot => {
+            const state = snapshot.val()
+            // Set state based on local redux store
+            if (currentCart.length === 0 && state !== null) {
+                // Synchronize redux store with json response (so the data won't gone if refreshed)
+                Object.values(state).forEach(updateCartObj => {
+                    cartDispatcher(syncStore(updateCartObj))
+                });
+            }
+        })
+    }, [loggedUser.user.uid])
 
     return (
         <>

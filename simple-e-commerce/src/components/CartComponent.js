@@ -4,7 +4,7 @@ import FontAwesome from 'react-fontawesome';
 
 const CartComponent = props => {
     const { decreaseAmountProduct, increaseAmountProduct, removeCartHandler, ...singleItem } = props
-
+    console.log(singleItem)
     const styleRemoveButton = {
         transform: 'translate(80em, -12em)',
         width: '20px',
@@ -20,7 +20,7 @@ const CartComponent = props => {
     const styleButton = window.screen.width > 890 ? styleRemoveButton : styleRemoveButtonMobileView
 
     return (
-        <MDBCard ecommerce={true} style={{ padding: '2em', marginTop: '2em' }} >
+        <MDBCard ecommerce style={{ padding: '2em', marginTop: '2em' }} >
             <MDBRow>
                 <MDBCol lg='2' sm='12' style={{ textAlign: 'center' }}>
                     <img src={props.image} width={100} alt={props.image} />

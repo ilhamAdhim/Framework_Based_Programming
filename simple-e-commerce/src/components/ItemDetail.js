@@ -17,21 +17,22 @@ const ItemDetail = props => {
     let styleCard = { padding: '2em', marginBottom: '1em' }
 
     // ! Cart update differently in here
-    const addCartHandler = () => addCartDispatch(addCart(singleItem))
+    const addCartHandler = () => addCartDispatch(addCart(singleItem, loggedUser.user.uid))
 
     const decreaseAmountProduct = (item) => {
         if (item.amount > 1) {
-            addCartDispatch(reduceQty(item))
+            addCartDispatch(reduceQty(item, loggedUser.user.uid))
         } else {
-            addCartDispatch(removeCart(item))
+            addCartDispatch(removeCart(item, loggedUser.user.uid))
         }
     }
-    const increaseAmountProduct = (item) => { addCartDispatch(addQty(item)) }
+
+    const increaseAmountProduct = (item) => { addCartDispatch(addQty(item, loggedUser.user.uid)) }
 
     let amountProduct = currentCart.filter((item) => item.id === parseInt(idProduct)).length > 0 ?
         currentCart.filter(item => item.id === parseInt(idProduct))[0].amount : 0
 
-    const redirectIfLoggedOut = () => loggedUser.status ? addCartHandler() : history.push('/login')
+    const redirectIfLoggedOut = () => loggedUser.isAuthenticated ? addCartHandler() : history.push('/login')
 
     useEffect(() => {
         // Update the amount passed from props based on condition in current cart
@@ -67,7 +68,6 @@ const ItemDetail = props => {
 
         </MDBRow>
     )
-
 
     return (
         <MDBRow>

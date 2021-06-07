@@ -18,7 +18,6 @@ const LoginPage = () => {
 
   const loginDispatch = useDispatch()
   const userState = useSelector(state => state.user)
-  console.log(userState)
 
   // ? Get input value for password and email input fields
   const [password, setPassword] = useState('')

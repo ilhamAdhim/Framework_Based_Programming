@@ -1,6 +1,7 @@
 import axios from "axios"
+import { myFirebase } from "../firebase"
 
-export const addCart = product => {
+export const addCart = (product, uid) => {
     return dispatch => {
         const dataInput = {
             "id": product.id,
@@ -11,9 +12,8 @@ export const addCart = product => {
             "image": product.image,
             "description": product.description
         }
-
-        return axios.post('http://localhost:3002/cart', JSON.stringify(dataInput), { headers: { "Content-Type": "application/json" } })
-            .then(res => dispatch({ type: 'ADD_CART', payload: res.data }))
+        return myFirebase.database().ref(`carts/${uid}/${dataInput.id}`).set(dataInput)
+            .then(() => dispatch({ type: 'ADD_CART', payload: dataInput }))
             .catch(() => dispatch({ type: 'ADD_CART', payload: { amount: 1, ...product } }))
     }
 }
@@ -25,15 +25,15 @@ export const syncStore = product => {
     }
 }
 
-export const removeCart = product => {
+export const removeCart = (product, uid) => {
     return dispatch => {
         return axios.delete(`http://localhost:3002/cart/${product.id}`, { headers: { "Content-Type": "application/json" } })
-            .then(res => dispatch({ type: 'REMOVE_CART', payload: product }))
+            .then(() => dispatch({ type: 'REMOVE_CART', payload: product }))
             .catch(() => dispatch({ type: 'REMOVE_CART', payload: product }))
     }
 }
 
-export const updateCart = product => {
+export const updateCart = (product, uid) => {
     return dispatch => {
         const dataInput = {
             "id": product.id,
@@ -45,16 +45,15 @@ export const updateCart = product => {
             "description": product.description
         }
 
-        return axios.put(`http://localhost:3002/cart/${product.id}`, JSON.stringify(dataInput), { headers: { "Content-Type": "application/json" } })
-            .then(res => {
-                dispatch({ type: 'UPDATE_CART', payload: res.data })
-            }).catch(() => dispatch({ type: 'UPDATE_CART', payload: product }))
+        return myFirebase.database().ref(`carts/${uid}/${dataInput.id}`).set(dataInput)
+            .then(() => dispatch({ type: 'UPDATE_CART', payload: dataInput }))
+            .catch(() => dispatch({ type: 'UPDATE_CART', payload: dataInput }))
     }
 }
 
 export const addQty = updateCart
 
-export const reduceQty = product => {
+export const reduceQty = (product, uid) => {
     return dispatch => {
         const dataInput = {
             "id": product.id,
@@ -66,11 +65,9 @@ export const reduceQty = product => {
             "description": product.description
         }
 
-        return axios.put(`http://localhost:3002/cart/${product.id}`, JSON.stringify(dataInput), { headers: { "Content-Type": "application/json" } })
-            .then(res => {
-                dispatch({ type: 'REDUCE_QTY', payload: res.data })
-            }).catch(() => dispatch({ type: 'REDUCE_QTY', payload: product }))
-
+        return myFirebase.database().ref(`carts/${uid}/${dataInput.id}`).set(dataInput)
+            .then(() => dispatch({ type: 'REDUCE_QTY', payload: dataInput }))
+            .catch(() => dispatch({ type: 'REDUCE_QTY', payload: dataInput }))
     }
 }
 
