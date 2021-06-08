@@ -27,10 +27,7 @@ const VerifyTransaction = props => {
 
     const approveTransaction = (uid) => {
         updateDataFirebase(`users/user/${uid}/transactionStatus`, true)
-            .then(() => setDataTransaction(() => {
-                dataTransaction.shift()
-                if (dataTransaction.length === 0) window.location.reload(false)
-            }))
+            .then(() => setDataTransaction(() => dataTransaction.filter(item => item.id !== uid)))
     }
 
     return (

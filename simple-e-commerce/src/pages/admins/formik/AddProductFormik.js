@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { addDataFirebase } from "../../../firebase/services";
 
-export const AddProductFormik = (role = "add", setDisplayAlert, setIsError, id = 0) => {
+export const AddProductFormik = (role = "add", productList, setProductList, setIsModalVisible, id = 0) => {
     return useFormik({
         initialValues: {
             id: 0,
@@ -14,7 +14,6 @@ export const AddProductFormik = (role = "add", setDisplayAlert, setIsError, id =
             promo: ''
         },
 
-        //TODO : Yup validations
         validationSchema: () =>
             Yup.object({
                 name: Yup.string().required("Required"),
@@ -34,7 +33,10 @@ export const AddProductFormik = (role = "add", setDisplayAlert, setIsError, id =
             role === "add" ?
                 // console.log(JSON.stringify(values, null, 2))
                 addDataFirebase(`products/${values.id}`, normalizedValues)
-                    .then(() => window.location.reload(false))
+                    .then(() => {
+                        setProductList([...productList, values])
+                        setIsModalVisible(false)
+                    })
                 :
                 console.log("idnya : ", id)
 

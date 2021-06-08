@@ -23,9 +23,11 @@ const CartPage = () => {
     const totalPrice = currentCart.length > 0 ? totalPerItem.reduce((a, b) => parseInt(a) + parseInt(b)) : 0
 
     useEffect(() => {
+        document.title = `Cart | ${loggedUser.user.displayName || 'Public'}`
+
         let ref = myFirebase.database().ref(`users/user/${loggedUser.user.uid}/transactionStatus`)
         ref.on('value', snapshot => {
-            if (snapshot !== null) setTransactionStatus(snapshot)
+            if (snapshot !== null) setTransactionStatus(snapshot.val())
         })
     }, [])
 
@@ -37,7 +39,7 @@ const CartPage = () => {
     useEffect(() => {
         console.log(transactionStatus)
         if (transactionStatus !== undefined)
-            transactionStatus ? setNoteStatus("Payment Successfull!") : setNoteStatus("Checking...")
+            transactionStatus ? setNoteStatus("Payment Successfull!") : setNoteStatus("")
     }, [transactionStatus]);
 
     return (
@@ -48,9 +50,7 @@ const CartPage = () => {
                     <>
                         <h1>My Cart</h1>
                         {currentCart.map(item =>
-                            <CartComponent key={item.id}
-                                {...item}
-                            />
+                            <CartComponent key={item.id} {...item} />
                         )}
                         <hr />
                         <MDBRow style={{ color: 'rgb(235, 64, 52)' }}>

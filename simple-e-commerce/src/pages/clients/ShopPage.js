@@ -34,6 +34,9 @@ function ShopPage() {
             console.log(state)
             setProducts(state)
         })
+
+        document.title = `Product | Shop`
+
     }, [])
 
     if (!products) return <div>loading...</div>

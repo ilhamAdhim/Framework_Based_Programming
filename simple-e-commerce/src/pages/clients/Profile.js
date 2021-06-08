@@ -41,7 +41,7 @@ const Profile = props => {
                 setDataCart(Object.values(state))
             }
         })
-
+        document.title = `Profile | ${loggedUser.user.displayName || 'Public'}`
     }, [loggedUser.user.uid])
 
     useEffect(() => {

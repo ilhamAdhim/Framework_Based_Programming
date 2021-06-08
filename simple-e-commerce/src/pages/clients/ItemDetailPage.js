@@ -25,6 +25,7 @@ const ItemDetailPage = () => {
     const [products, setProducts] = useState([])
 
     useEffect(async () => {
+
         let ref = firebase.database().ref("products/")
         ref.on('value', snapshot => {
             setIsLoading(true)
@@ -33,7 +34,12 @@ const ItemDetailPage = () => {
             setSingleItem(state.find(item => item.id === parseInt(idProduct)));
             setIsLoading(false)
         })
+
     }, [idProduct])
+
+    useEffect(() => {
+        document.title = `Product | ${singleItem?.name || 'Public'}`
+    }, [singleItem]);
 
     useEffect(() => {
         setSamePromoCode(products.filter(item => item.promo === singleItem.promo));

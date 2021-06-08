@@ -6,7 +6,7 @@ import EditProductContent from '../../components/admins/EditProductContent';
 import Sidebar from '../../components/admins/Sidebar';
 import Modals from '../../components/Modals';
 import { myFirebase } from '../../firebase';
-import { readDataFirebase } from '../../firebase/services';
+import { readDataFirebase, deleteDataFirebase } from '../../firebase/services';
 import { AddProductFormik } from './formik/AddProductFormik';
 
 const ManageProduct = props => {
@@ -14,6 +14,7 @@ const ManageProduct = props => {
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [singleProductForEdit, setSingleProductForEdit] = useState({});
+    const [customHandler, setCustomHandler] = useState();
 
     // Modal States
     const [titleModals, setTitleModals] = useState("");
@@ -22,7 +23,7 @@ const ManageProduct = props => {
     const [isError, setIsError] = useState(false);
     const [formikObj, setFormikObj] = useState();
 
-    const addProductFormik = AddProductFormik("add", setDisplayAlert, setIsError)
+    const addProductFormik = AddProductFormik("add", dataProducts, setDataProducts, setIsModalVisible)
     // const editProductFormik = AddProductFormik("edit", setDisplayAlert, setIsError)
 
     useEffect(() => {
@@ -58,6 +59,14 @@ const ManageProduct = props => {
          })
      }, [singleProductForEdit]); */
 
+    const removeProduct = (obj) => {
+        deleteDataFirebase(`products/${obj.id}`, null)
+            .then(() => {
+                setDataProducts(() => dataProducts.filter(item => item.id !== obj.id))
+                setIsModalVisible(false)
+            })
+    }
+
     return (
         <div className="d-sm-flex d-lg-block-flex">
             <Sidebar />
@@ -66,7 +75,7 @@ const ManageProduct = props => {
                     <Modals title={titleModals}
                         content={contentModals}
                         isModalVisible={isModalVisible}
-                        submitHandler={formikObj.handleSubmit}
+                        submitHandler={formikObj.handleSubmit || customHandler}
                         setIsModalVisible={() => setIsModalVisible()} />
                     : null}
                 <div className="d-flex mt-4 mb-4 justify-content-between">
@@ -101,7 +110,13 @@ const ManageProduct = props => {
                                 <MDBCol sm="12" md="2">
                                     <p className="ml- mt-4"> {`Rp. ${item.price.toLocaleString('id', 'ID')}`}</p>
                                 </MDBCol>
-
+                                <MDBCol>
+                                    <MDBBtn type="button" color="danger" onClick={() => {
+                                        setIsModalVisible(true)
+                                        setCustomHandler(() => removeProduct(item))
+                                        // setSingleUser(user)
+                                    }}> x </MDBBtn>
+                                </MDBCol>
                             </MDBRow>
                         </MDBCard>
                     ))

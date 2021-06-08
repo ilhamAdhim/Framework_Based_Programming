@@ -44,6 +44,9 @@ const LoginPage = () => {
     console.log(userState)
   }, [userState]);
 
+  useEffect(() => {
+    document.title = `Login`
+  }, []);
   const { loginError, isAuthenticated } = userState
 
   if (isAuthenticated && userState.user.role === "user") {
