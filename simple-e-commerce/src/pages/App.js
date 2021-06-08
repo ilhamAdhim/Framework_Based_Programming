@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
+
+import Profile from './clients/Profile';
 import ShopPage from './clients/ShopPage';
+import CartPage from "./clients/CartPage";
 import LoginPage from './clients/LoginPage';
 import PromoPage from "./clients/PromoPage";
-import CartPage from "./clients/CartPage";
+import CheckoutPage from './clients/CheckoutPage';
 import ItemDetailPage from './clients/ItemDetailPage';
-import Profile from './clients/Profile';
+
 import {
     BrowserRouter as Router, Route, Switch, Redirect,
 } from "react-router-dom";

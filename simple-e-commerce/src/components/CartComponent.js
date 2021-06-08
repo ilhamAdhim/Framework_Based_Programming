@@ -1,9 +1,11 @@
 import { MDBBtn, MDBCard, MDBCol, MDBRow } from 'mdbreact';
-import React from 'react';
+import React, { useEffect } from 'react';
 import FontAwesome from 'react-fontawesome';
+import { useDispatch, useSelector } from 'react-redux';
+import { addQty, reduceQty, removeCart } from '../actions/cartAction';
 
 const CartComponent = props => {
-    const { decreaseAmountProduct, increaseAmountProduct, removeCartHandler, ...singleItem } = props
+    const { ...singleItem } = props
     const styleRemoveButton = {
         transform: 'translate(80em, -12em)',
         width: '20px',
@@ -15,6 +17,28 @@ const CartComponent = props => {
         width: '20px',
         paddingLeft: '1em'
     }
+
+    const cartDispatcher = useDispatch()
+    const loggedUser = useSelector(state => state.user)
+    const currentCart = useSelector(state => state.cart)
+
+    const removeCartHandler = item => cartDispatcher(removeCart(item, loggedUser.user.uid))
+    const increaseAmountProduct = item => cartDispatcher(addQty(item, loggedUser.user.uid))
+    // Limit the amount, so that it wont go negative
+    const decreaseAmountProduct = item => {
+        if (item.amount > 1)
+            cartDispatcher(reduceQty(item, loggedUser.user.uid))
+        else
+            cartDispatcher(removeCart(item, loggedUser.user.uid))
+    }
+
+    let amountProduct = currentCart.filter((item) => item.id === parseInt(singleItem.id)).length > 0 ?
+        currentCart.filter(item => item.id === parseInt(singleItem.id))[0].amount : 0
+
+    useEffect(() => {
+        // Update the amount passed from props based on condition in current cart
+        singleItem.amount = amountProduct
+    }, [currentCart])
 
     const styleButton = window.screen.width > 890 ? styleRemoveButton : styleRemoveButtonMobileView
 
@@ -31,7 +55,7 @@ const CartComponent = props => {
                     {`Rp. ${(props.price * props.amount).toLocaleString('id-ID')}`}
                 </MDBCol>
                 <MDBCol lg='4' s='12' style={{ textAlign: 'center', marginTop: '2em' }}>
-                    <MDBBtn color="red" onClick={() => props.decreaseAmountProduct(singleItem)}>
+                    <MDBBtn color="red" onClick={() => decreaseAmountProduct(singleItem)}>
                         <FontAwesome
                             name='minus'
                             size='2x'
@@ -39,7 +63,7 @@ const CartComponent = props => {
                         />
                     </MDBBtn>
                     <span style={{ margin: '1em', fontWeight: 'bold' }}> {props.amount}</span>
-                    <MDBBtn color="green" onClick={() => props.increaseAmountProduct(singleItem)}>
+                    <MDBBtn color="green" onClick={() => increaseAmountProduct(singleItem)}>
                         <FontAwesome
                             name='plus'
                             size='2x'
@@ -48,7 +72,7 @@ const CartComponent = props => {
                     </MDBBtn>
                 </MDBCol>
             </MDBRow>
-            <MDBBtn color="orange" onClick={() => props.removeCartHandler(singleItem)} style={styleButton}>
+            <MDBBtn color="orange" onClick={() => removeCartHandler(singleItem)} style={styleButton}>
                 <FontAwesome
                     name='close'
                     size='2x'

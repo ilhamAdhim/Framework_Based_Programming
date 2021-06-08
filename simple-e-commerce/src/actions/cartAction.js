@@ -1,5 +1,6 @@
 import axios from "axios"
 import { myFirebase } from "../firebase"
+import { addDataFirebase, updateDataFirebase } from "../firebase/services"
 
 export const addCart = (product, uid) => {
     console.log("dari addCart")
@@ -13,7 +14,7 @@ export const addCart = (product, uid) => {
             "image": product.image,
             "description": product.description
         }
-        return myFirebase.database().ref(`carts/${uid}/${dataInput.id}`).set(dataInput)
+        return addDataFirebase(`users/user/${uid}/cart/${dataInput.id}`, dataInput)
             .then(() => dispatch({ type: 'ADD_CART', payload: dataInput }))
             .catch(() => dispatch({ type: 'ADD_CART', payload: { amount: 1, ...product } }))
     }
@@ -29,14 +30,13 @@ export const syncStore = product => {
 
 export const removeCart = (product, uid) => {
     return dispatch => {
-        return myFirebase.database().ref(`carts/${uid}/${product.id}`).set(null)
+        return updateDataFirebase(`users/user/${uid}/cart/${product.id}`, null)
             .then(() => dispatch({ type: 'REMOVE_CART', payload: product }))
             .catch(() => dispatch({ type: 'REMOVE_CART', payload: product }))
     }
 }
 
 export const updateCart = (product, uid) => {
-    console.log("hehehe updated")
     return dispatch => {
         const dataInput = {
             "id": product.id,
@@ -48,7 +48,7 @@ export const updateCart = (product, uid) => {
             "description": product.description
         }
 
-        return myFirebase.database().ref(`carts/${uid}/${dataInput.id}`).set(dataInput)
+        return updateDataFirebase(`users/user/${uid}/cart/${dataInput.id}`, dataInput)
             .then(() => dispatch({ type: 'UPDATE_CART', payload: dataInput }))
             .catch(() => dispatch({ type: 'UPDATE_CART', payload: dataInput }))
     }
@@ -57,6 +57,7 @@ export const updateCart = (product, uid) => {
 export const addQty = updateCart
 
 export const reduceQty = (product, uid) => {
+    console.log("hjehehe removed")
     return dispatch => {
         const dataInput = {
             "id": product.id,
@@ -68,7 +69,7 @@ export const reduceQty = (product, uid) => {
             "description": product.description
         }
 
-        return myFirebase.database().ref(`carts/${uid}/${dataInput.id}`).set(dataInput)
+        return updateDataFirebase(`users/user/${uid}/cart/${dataInput.id}`, dataInput)
             .then(() => dispatch({ type: 'REDUCE_QTY', payload: dataInput }))
             .catch(() => dispatch({ type: 'REDUCE_QTY', payload: dataInput }))
     }

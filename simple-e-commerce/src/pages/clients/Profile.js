@@ -33,13 +33,12 @@ const Profile = props => {
 
     // ? Fetch cart data from firebase once loaded
     useEffect(async () => {
-        let ref = firebase.database().ref(`carts/${loggedUser.user.uid}`)
+        let ref = firebase.database().ref(`users/user/${loggedUser.user.uid}/cart`)
         ref.on('value', snapshot => {
             const state = snapshot.val()
             // Set state based on local redux store
             if (currentCart.length === 0 && state !== null) {
                 setDataCart(Object.values(state))
-                // Synchronize redux store with json response (so the data won't gone if refreshed)
             }
         })
 

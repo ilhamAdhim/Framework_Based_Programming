@@ -20,9 +20,13 @@ const LoginPage = () => {
   const userState = useSelector(state => state.user)
 
   // ? Get input value for password and email input fields
-  const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [displayPassword, setDisplayPassword] = useState(false)
+
+  // ? Role can be user or admin
+  const [role, setRole] = useState("user")
+
 
   // ? loginUser variable is used on onclick button, by updating state in store with dispatch. from authActions 
   const loginUser = () => {
@@ -30,7 +34,7 @@ const LoginPage = () => {
       loginDispatch(login(email, password))
   }
 
-  const loginUserWithGoogle = () => loginDispatch(loginWithGoogle())
+  const loginUserWithGoogle = () => loginDispatch(loginWithGoogle(role))
 
   const handlePasswordChange = (e) => setPassword(e.target.value)
   const handleEmailChange = (e) => setEmail(e.target.value)

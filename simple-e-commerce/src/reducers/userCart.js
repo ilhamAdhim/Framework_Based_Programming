@@ -7,7 +7,6 @@ export const userCart = (state = [], action) => {
         case 'EMPTY_CART':
             return state = []
         case 'UPDATE_CART':
-            console.log("terupdate")
             return state.map(item => item.id === action.payload.id ? { amount: item.amount++, ...item } : item)
         case 'REDUCE_QTY':
             return state.map(item => item.id === action.payload.id ? { amount: item.amount--, ...item } : item)

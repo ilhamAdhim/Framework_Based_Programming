@@ -1,5 +1,7 @@
 import firebase from "firebase"
 import { myFirebase } from "../firebase";
+import { addDataFirebase, readDataFirebase, updateDataFirebase } from "../firebase/services";
+import { emptyCart } from "./cartAction";
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
@@ -69,7 +71,10 @@ export const logout = () => dispatch => {
     myFirebase
         .auth()
         .signOut()
-        .then(() => dispatch(receiveLogout()))
+        .then(() => {
+            dispatch(receiveLogout())
+            dispatch(emptyCart())
+        })
         .catch(error => {
             // Do something with the error if you want! 
             dispatch(logoutError());
@@ -86,12 +91,24 @@ export const verifyAuth = () => dispatch => {
     });
 };
 
-export const loginWithGoogle = () => dispatch => {
+export const loginWithGoogle = (role) => dispatch => {
     dispatch(requestLogin());
     myFirebase
         .auth()
-        .signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((res) => {
-            if (res.user) dispatch(receiveLogin(res.user));
+        .signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res => {
+            if (res.user) {
+                // ? Check if the user is registered in firebase db or not yet
+                let ref = myFirebase.database().ref(`users/${role}/${res.user.uid}`)
+                readDataFirebase(ref).then(response => {
+                    if (response === null) {
+                        addDataFirebase(`users/${role}/${res.user.uid}/`, { accountStatus: 'registered' })
+                            .then(() => dispatch(receiveLogin(res.user)))
+                    } else {
+                        updateDataFirebase(`users/${role}/${res.user.uid}/`, { ...response })
+                            .then(() => dispatch(receiveLogin(res.user)))
+                    }
+                })
+            }
         }).catch((error) => {
             console.log(error.message)
         })
