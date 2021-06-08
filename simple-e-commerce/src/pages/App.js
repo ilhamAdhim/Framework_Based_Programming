@@ -1,20 +1,24 @@
 import React, { useEffect } from 'react';
 
+//Users pages
 import Profile from './clients/Profile';
 import ShopPage from './clients/ShopPage';
 import CartPage from "./clients/CartPage";
 import LoginPage from './clients/LoginPage';
 import PromoPage from "./clients/PromoPage";
-import CheckoutPage from './clients/CheckoutPage';
 import ItemDetailPage from './clients/ItemDetailPage';
 
-import {
-    BrowserRouter as Router, Route, Switch, Redirect,
-} from "react-router-dom";
+// Admin Pages
+import ManageProduct from './admins/ManageProduct';
+import ManageUsers from './admins/ManageUsers';
+import VerifyTransaction from './admins/VerifyTransaction';
+
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 // Added animate on Scroll library
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import AdminRoute from '../components/admins/AdminRoute';
 
 
 const App = () => {
@@ -31,7 +35,11 @@ const App = () => {
                 <Route path="/cart" component={CartPage} />
                 <Route path="/profile" component={Profile} />
                 <Route path="/detail/:idProduct" component={ItemDetailPage} />
-                {/* <PrivateRoute path="/profile" render={() => (<Profile auth={[isAuthenticated, setIsAuth]} />)} /> */}
+
+                <AdminRoute exact path="/manageProducts" component={ManageProduct} />
+                <AdminRoute exact path="/manageUsers" component={ManageUsers} />
+                <AdminRoute exact path="/verifyTransaction" component={VerifyTransaction} />
+                {/* {<PrivateRoute path="/profile" render={() => (<Profile auth={[isAuthenticated, setIsAuth]} />)} />} */}
                 <Redirect to="/" />
             </Switch>
         </Router>

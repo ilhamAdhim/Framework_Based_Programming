@@ -101,7 +101,12 @@ export const loginWithGoogle = (role) => dispatch => {
                 let ref = myFirebase.database().ref(`users/${role}/${res.user.uid}`)
                 readDataFirebase(ref).then(response => {
                     if (response === null) {
-                        addDataFirebase(`users/${role}/${res.user.uid}/`, { accountStatus: 'registered' })
+                        addDataFirebase(`users/${role}/${res.user.uid}/`, {
+                            uid: res.user.uid,
+                            name: res.user.displayName,
+                            image: res.user.photoURL,
+                            accountStatus: 'registered'
+                        })
                             .then(() => dispatch(receiveLogin(res.user)))
                     } else {
                         updateDataFirebase(`users/${role}/${res.user.uid}/`, { ...response })
