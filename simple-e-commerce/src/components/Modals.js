@@ -7,12 +7,12 @@ const Modals = ({ title, content, isModalVisible, setIsModalVisible, submitHandl
         <MDBContainer>
             <MDBModal isOpen={isModalVisible} toggle={() => setIsModalVisible(false)}>
                 <MDBModalHeader toggle={() => setIsModalVisible(false)}>{title}</MDBModalHeader>
-                <MDBModalBody>
+                <MDBModalBody className="fw-bold">
                     {content}
                 </MDBModalBody>
                 <MDBModalFooter>
-                    <MDBBtn color="secondary" onClick={() => setIsModalVisible(false)}>Close</MDBBtn>
-                    <MDBBtn color="primary" onClick={submitHandler}>Save changes</MDBBtn>
+                    <MDBBtn color="danger" onClick={() => setIsModalVisible(false)}>Cancel</MDBBtn>
+                    <MDBBtn color="success" onClick={submitHandler}>Yes</MDBBtn>
                 </MDBModalFooter>
             </MDBModal>
         </MDBContainer>

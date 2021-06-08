@@ -1,6 +1,5 @@
-import { MDBBtn, MDBRow } from 'mdbreact';
+import { MDBRow } from 'mdbreact';
 import React from 'react';
-import { useHistory } from 'react-router';
 import { ReactComponent as ThinkingLogo } from './thinking.svg';
 
 const Thinking = () => {

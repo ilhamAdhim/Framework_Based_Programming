@@ -1,5 +1,3 @@
-import axios from "axios"
-import { myFirebase } from "../firebase"
 import { addDataFirebase, updateDataFirebase } from "../firebase/services"
 
 export const addCart = (product, uid) => {

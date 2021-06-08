@@ -52,13 +52,13 @@ const verifySuccess = () => {
     };
 };
 
-export const login = (email, password) => dispatch => {
+export const login = (email, password, role) => dispatch => {
     dispatch(requestLogin());
     myFirebase
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(user => {
-            dispatch(receiveLogin(user));
+            dispatch(receiveLogin({ role: role, ...user }));
         })
         .catch(error => {
             // Do something with the error if you want! 
@@ -107,10 +107,10 @@ export const loginWithGoogle = (role) => dispatch => {
                             image: res.user.photoURL,
                             accountStatus: 'registered'
                         })
-                            .then(() => dispatch(receiveLogin(res.user)))
+                            .then(() => dispatch(receiveLogin({ role: role, ...res.user })))
                     } else {
                         updateDataFirebase(`users/${role}/${res.user.uid}/`, { ...response })
-                            .then(() => dispatch(receiveLogin(res.user)))
+                            .then(() => dispatch(receiveLogin({ role: role, ...res.user })))
                     }
                 })
             }

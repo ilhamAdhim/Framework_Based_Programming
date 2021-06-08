@@ -36,7 +36,8 @@ const VerifyTransaction = props => {
     return (
         <div className="d-flex">
             <Sidebar />
-            <MDBContainer className="mt-4 mb-4">
+            <MDBContainer className="mt-4 mb-4"
+                style={window.screen.width > 800 ? { marginLeft: '20em' } : {}}>
                 <h2 className="mb-4">
                     New Transactions
                 </h2>

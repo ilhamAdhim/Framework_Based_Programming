@@ -36,9 +36,9 @@ const App = () => {
                 <Route path="/profile" component={Profile} />
                 <Route path="/detail/:idProduct" component={ItemDetailPage} />
 
-                <AdminRoute exact path="/manageProducts" component={ManageProduct} />
-                <AdminRoute exact path="/manageUsers" component={ManageUsers} />
-                <AdminRoute exact path="/verifyTransaction" component={VerifyTransaction} />
+                <AdminRoute exact path="/ManageProducts" component={ManageProduct} />
+                <AdminRoute exact path="/ManageUsers" component={ManageUsers} />
+                <AdminRoute exact path="/VerifyTransaction" component={VerifyTransaction} />
                 {/* {<PrivateRoute path="/profile" render={() => (<Profile auth={[isAuthenticated, setIsAuth]} />)} />} */}
                 <Redirect to="/" />
             </Switch>

@@ -1,14 +1,10 @@
-import axios from 'axios';
 import { MDBBtn, MDBCol, MDBContainer, MDBRow } from 'mdbreact';
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { reduceQty, addQty, removeCart, syncStore, updateCart } from '../../actions/cartAction';
+import { useSelector } from 'react-redux';
 import AddToCart from '../../assets/AddToCart';
 import CartComponent from '../../components/CartComponent';
 import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
-import firebase from "firebase"
-import { Link } from 'react-router-dom';
 import { addDataFirebase, readDataFirebase } from '../../firebase/services';
 import { myFirebase } from '../../firebase';
 
@@ -28,11 +24,9 @@ const CartPage = () => {
 
     useEffect(() => {
         let ref = myFirebase.database().ref(`users/user/${loggedUser.user.uid}/transactionStatus`)
-        readDataFirebase(ref)
-            .then(res => {
-                if (res !== null) setTransactionStatus(res)
-
-            })
+        ref.on('value', snapshot => {
+            if (snapshot !== null) setTransactionStatus(snapshot)
+        })
     }, [])
 
     const makePayment = () => {
