@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import ProductCard from "../components/ProductCard";
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import ProductCard from "../../components/ProductCard";
 import { Link, useParams } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBCardGroup } from 'mdbreact';
 import firebase from "firebase"
-import ItemDetail from '../components/ItemDetail';
+import ItemDetail from '../../components/ItemDetail';
 
 export function ScrollToTopOnMount() {
     useEffect(() => {

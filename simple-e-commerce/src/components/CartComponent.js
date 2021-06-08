@@ -4,7 +4,6 @@ import FontAwesome from 'react-fontawesome';
 
 const CartComponent = props => {
     const { decreaseAmountProduct, increaseAmountProduct, removeCartHandler, ...singleItem } = props
-    console.log(singleItem)
     const styleRemoveButton = {
         transform: 'translate(80em, -12em)',
         width: '20px',

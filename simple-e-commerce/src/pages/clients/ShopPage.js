@@ -1,13 +1,13 @@
 
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import ProductList from "../components/ProductList";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+import ProductList from "../../components/ProductList";
 import { Container } from "react-bootstrap";
-import "../styles/navbar.css";
-import "../styles/footer.css";
+import "../../styles/navbar.css";
+import "../../styles/footer.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { addQty, reduceQty, removeCart } from '../actions/cartAction';
-import Thinking from '../assets/Thinking';
+import { addQty, reduceQty, removeCart } from '../../actions/cartAction';
+import Thinking from '../../assets/Thinking';
 import { useEffect, useState } from "react";
 import firebase from "firebase"
 

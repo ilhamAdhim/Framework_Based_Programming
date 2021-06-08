@@ -1,15 +1,15 @@
 import { MDBBtn, MDBCard, MDBCardText, MDBCol, MDBContainer, MDBRow } from 'mdbreact';
-import React from 'react';
+import React, { useState } from 'react';
 import { Image } from 'react-bootstrap';
 import FontAwesome from "react-fontawesome";
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useHistory } from "react-router-dom";
-import { logout } from '../actions/authAction'
-import { syncStore } from '../actions/cartAction';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import '../styles/quotes.css';
+import { logout } from '../../actions/authAction'
+import { syncStore } from '../../actions/cartAction';
+import Footer from '../../components/Footer';
+import Navbar from '../../components/Navbar';
+import '../../styles/quotes.css';
 
 import firebase from "firebase"
 import { useEffect } from 'react';
@@ -18,6 +18,7 @@ const Profile = props => {
     let history = useHistory();
     const loggedUser = useSelector(state => state.user)
 
+    const [dataCart, setDataCart] = useState([]);
     const userDispatch = useDispatch()
 
     // ? logoutUser variable is used on onclick button, by updating state in store with dispatch. from authActions 
@@ -37,14 +38,18 @@ const Profile = props => {
             const state = snapshot.val()
             // Set state based on local redux store
             if (currentCart.length === 0 && state !== null) {
+                setDataCart(Object.values(state))
                 // Synchronize redux store with json response (so the data won't gone if refreshed)
-                Object.values(state).forEach(updateCartObj => {
-                    cartDispatcher(syncStore(updateCartObj))
-                });
             }
         })
+
     }, [loggedUser.user.uid])
 
+    useEffect(() => {
+        dataCart.forEach(updateCartObj => {
+            cartDispatcher(syncStore(updateCartObj))
+        });
+    }, [dataCart]);
     return (
         <>
             <Navbar />

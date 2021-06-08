@@ -2,6 +2,7 @@ import axios from "axios"
 import { myFirebase } from "../firebase"
 
 export const addCart = (product, uid) => {
+    console.log("dari addCart")
     return dispatch => {
         const dataInput = {
             "id": product.id,
@@ -19,6 +20,7 @@ export const addCart = (product, uid) => {
 }
 
 export const syncStore = product => {
+    console.log("dari syncstore")
     return {
         type: 'ADD_CART',
         payload: product
@@ -27,13 +29,14 @@ export const syncStore = product => {
 
 export const removeCart = (product, uid) => {
     return dispatch => {
-        return axios.delete(`http://localhost:3002/cart/${product.id}`, { headers: { "Content-Type": "application/json" } })
+        return myFirebase.database().ref(`carts/${uid}/${product.id}`).set(null)
             .then(() => dispatch({ type: 'REMOVE_CART', payload: product }))
             .catch(() => dispatch({ type: 'REMOVE_CART', payload: product }))
     }
 }
 
 export const updateCart = (product, uid) => {
+    console.log("hehehe updated")
     return dispatch => {
         const dataInput = {
             "id": product.id,

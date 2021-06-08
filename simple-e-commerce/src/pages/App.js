@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import ShopPage from './ShopPage';
-import LoginPage from './LoginPage';
-import PromoPage from "../pages/PromoPage";
-import CartPage from "../pages/CartPage";
-import ItemDetailPage from './ItemDetailPage';
+import ShopPage from './clients/ShopPage';
+import LoginPage from './clients/LoginPage';
+import PromoPage from "./clients/PromoPage";
+import CartPage from "./clients/CartPage";
+import ItemDetailPage from './clients/ItemDetailPage';
+import Profile from './clients/Profile';
 import {
     BrowserRouter as Router, Route, Switch, Redirect,
 } from "react-router-dom";
@@ -12,7 +13,6 @@ import {
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import Profile from './Profile';
 
 const App = () => {
     useEffect(() => {

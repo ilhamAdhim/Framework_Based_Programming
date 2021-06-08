@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import "../styles/login.css";
+import "../../styles/login.css";
 import {
   Redirect,
   useHistory
 } from "react-router-dom";
 
 import { useDispatch, useSelector } from 'react-redux';
-import { login, loginWithGoogle } from '../actions/authAction'
+import { login, loginWithGoogle } from '../../actions/authAction'
 
 // ? Icons 
-import { ReactComponent as IconPassword } from '../assets/icons/password.svg'
-import { ReactComponent as IconEyeOpen } from '../assets/icons/eye.svg'
-import { ReactComponent as IconEyeClose } from '../assets/icons/eyeClose.svg'
-import { ReactComponent as IconEmail } from '../assets/icons/email.svg'
+import { ReactComponent as IconPassword } from '../../assets/icons/password.svg'
+import { ReactComponent as IconEyeOpen } from '../../assets/icons/eye.svg'
+import { ReactComponent as IconEyeClose } from '../../assets/icons/eyeClose.svg'
+import { ReactComponent as IconEmail } from '../../assets/icons/email.svg'
 
 const LoginPage = () => {
 

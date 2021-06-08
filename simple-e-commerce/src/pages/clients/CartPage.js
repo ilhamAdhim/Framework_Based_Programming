@@ -2,11 +2,11 @@ import axios from 'axios';
 import { MDBCol, MDBContainer, MDBRow } from 'mdbreact';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { reduceQty, addQty, removeCart, syncStore, updateCart } from '../actions/cartAction';
-import AddToCart from '../assets/AddToCart';
-import CartComponent from '../components/CartComponent';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import { reduceQty, addQty, removeCart, syncStore, updateCart } from '../../actions/cartAction';
+import AddToCart from '../../assets/AddToCart';
+import CartComponent from '../../components/CartComponent';
+import Footer from '../../components/Footer';
+import Navbar from '../../components/Navbar';
 import firebase from "firebase"
 
 const CartPage = () => {
@@ -26,7 +26,6 @@ const CartPage = () => {
             ref.on('value', snapshot => {
                 setIsLoading(true)
                 const state = snapshot.val()
-                // console.log(state)
                 // Set state based on local redux store
                 if (currentCart.length === 0 && state !== null) {
                     console.log(currentCart.length)
@@ -38,17 +37,12 @@ const CartPage = () => {
                     /* Object.values(state).forEach(updateCartObj => {
                         cartDispatcher(updateCart(updateCartObj))
                     }); */
-                } else {
-                    setCardProduct(currentCart)
-                    console.log("hehehe")
                 }
             })
+            setCardProduct(currentCart)
+            console.log("hehehe")
         }
     }, [])
-
-    useEffect(() => {
-        console.log(currentCart.length, currentCart)
-    }, [currentCart]);
 
     const removeCartHandler = item => cartDispatcher(removeCart(item, loggedUser.user.uid))
     const increaseAmountProduct = item => cartDispatcher(addQty(item, loggedUser.user.uid))
